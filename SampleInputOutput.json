@@ -1,0 +1,102 @@
+{
+  "courseTitle": "Data Science with Python: From Basics to Applications",
+  "modules": [
+    {
+      "moduleName": "Foundations of Data Science",
+      "description": "Introduce fundamental concepts of data science, including basic statistics and data types.",
+      "submodules": [
+        {
+          "name": "What is Data Science?",
+          "description": "Overview of the field and career opportunities.",
+          "videoLecture": "Introduction to the interdisciplinary field of Data Science, covering data-driven decision making, roles, and impact.",
+          "quiz": [
+            {
+              "question": "What are common roles in a data science team?",
+              "options": ["A. Frontend Developer", "B. Data Engineer", "C. UX Designer", "D. System Administrator"],
+              "answer": "B"
+            }
+          ]
+        },
+        {
+          "name": "Basic Statistics",
+          "description": "Learn mean, median, mode, and standard deviation.",
+          "videoLecture": "Explains descriptive statistics with hands-on examples in Python.",
+          "quiz": [
+            {
+              "question": "What is the median of [3, 1, 4, 2, 5]?",
+              "options": ["A. 3", "B. 4", "C. 2", "D. 5"],
+              "answer": "A"
+            }
+          ]
+        }
+      ],
+      "assignment": "Analyze a small dataset and compute basic statistical measures using Python."
+    },
+    {
+      "moduleName": "Data Handling with Python",
+      "description": "Explore data ingestion, cleaning, and visualization using pandas and matplotlib.",
+      "submodules": [
+        {
+          "name": "Working with CSV Files",
+          "description": "Read and manipulate CSV data using pandas.",
+          "videoLecture": "Demonstrates loading, inspecting, and filtering CSV datasets in Python.",
+          "quiz": [
+            {
+              "question": "Which library is commonly used to read CSV files in Python?",
+              "options": ["A. numpy", "B. matplotlib", "C. pandas", "D. seaborn"],
+              "answer": "C"
+            }
+          ]
+        },
+        {
+          "name": "Data Cleaning Techniques",
+          "description": "Handle missing values, outliers, and formatting issues.",
+          "videoLecture": "Teaches techniques for dealing with nulls, duplicates, and inconsistent data.",
+          "quiz": [
+            {
+              "question": "What method fills missing values in pandas?",
+              "options": ["A. fill()", "B. replace()", "C. fillna()", "D. nullfix()"],
+              "answer": "C"
+            }
+          ]
+        }
+      ],
+      "assignment": "Clean a messy dataset and visualize key insights using Python libraries."
+    },
+    {
+      "moduleName": "Intro to Machine Learning",
+      "description": "Introduce basic ML concepts, models, and use cases.",
+      "submodules": [
+        {
+          "name": "Supervised Learning Basics",
+          "description": "Understand regression and classification with examples.",
+          "videoLecture": "Covers linear regression and logistic classification problems with scikit-learn.",
+          "quiz": [
+            {
+              "question": "Which algorithm is used for classification?",
+              "options": ["A. Linear Regression", "B. Logistic Regression", "C. PCA", "D. Clustering"],
+              "answer": "B"
+            }
+          ]
+        },
+        {
+          "name": "Model Evaluation",
+          "description": "Assess model performance using accuracy and confusion matrix.",
+          "videoLecture": "Demonstrates evaluation metrics and cross-validation in practice.",
+          "quiz": [
+            {
+              "question": "What does a confusion matrix show?",
+              "options": ["A. Model size", "B. Dataset errors", "C. True/false predictions", "D. Model parameters"],
+              "answer": "C"
+            }
+          ]
+        }
+      ],
+      "assignment": "Build a simple classifier using scikit-learn and evaluate it on test data."
+    }
+  ],
+  "capstoneProject": {
+    "title": "Build a Data Science Pipeline",
+    "description": "Create a complete pipeline from data ingestion to ML model deployment on a real-world dataset."
+  }
+}
