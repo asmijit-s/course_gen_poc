@@ -9,46 +9,46 @@ const groq = new Groq({
 
 function buildSystemPrompt(courseTitle, courseOverview, targetAudience, numModules) {
   return `
-You are a curriculum planner AI. You must return a valid, machine-readable JSON object ONLY — no Markdown, no code blocks, no free text, no commentary.
+Create a JSON course plan. Use this EXACT structure. Replace content but keep structure identical.
 
-### Course Definition:
-- Course Title: "${courseTitle}"
-- Overview: "${courseOverview}"
-- Audience: "${targetAudience}"
-- Modules: ${numModules}
-- Difficulty: suitable for "${targetAudience}" to Advanced
+{
+  "courseTitle": "${courseTitle}",
+  "overview": "${courseOverview}",
+  "audience": "${targetAudience}",
+  "modules": [
+    {
+      "moduleName": "Module 1",
+      "description": "Description here",
+      "submodules": [
+        {
+          "name": "Submodule 1",
+          "description": "Description here",
+          "videoLecture": "Video title",
+          "summary": "Summary here",
+          "quiz": [
+            {
+              "question": "Question here?",
+              "options": ["A", "B", "C", "D"],
+              "answer": "A"
+            }
+          ]
+        }
+      ],
+      "assignment": "Assignment description"
+    }
+  ],
+  "capstoneProject": {
+    "title": "Project title",
+    "description": "Project description"
+  }
+}
 
-### Requirements:
-- Structure the course with strictly ${numModules} modules.
-- Each module must include:
-  - "moduleName": string
-  - "description": string
-  - "submodules": an array with 1 to 3 submodules. Each must be an object with:
-    - "name": string
-    - "description": string (must have a key, not just a value)
-    - "videoLecture": string
-    - "summary": string
-    - "quiz": array of exactly one object with:
-      - "question": string
-      - "options": array of exactly four distinct strings
-      - "answer": one of the options
-  - "assignment": string
-
-- Add a "capstoneProject" at the end with:
-  - "title": string
-  - "description": string
-
-### Format:
-- Response MUST be a valid JSON object.
-- DO NOT include markdown, code fences, or any free text.
-- DO NOT omit or rename any fields.
-- All string values must be double-quoted.
-- Escape any internal quotes.
-- Use correct JSON syntax and nesting.
-- Do not output arrays or objects partially — every object must have complete keys and values.
-
-Return only valid JSON matching this exact structure.
-`;
+Requirements:
+- Create exactly ${numModules} modules
+- Each module has 1-2 submodules maximum
+- Keep all text under 50 characters
+- Ensure all brackets and commas are correct
+- Return only valid JSON, no other text`;
 }
 
 export async function generateCoursePlan(courseTitle, courseOverview, targetAudience, numModules) {
@@ -64,21 +64,24 @@ export async function generateCoursePlan(courseTitle, courseOverview, targetAudi
           content: systemPrompt,
         }
       ],
+      max_tokens: 4000, // Add this to prevent truncation
+      temperature: 0.1,  // Lower temperature for more consistent output
     });
 
-    const raw = response.choices[0].message.content;
+    const raw = response.choices[0]?.message?.content;
+    console.log("Raw response length:", raw?.length);
+    console.log("Raw response:", raw);
 
-    // Basic sanity check for JSON validity
     try {
-      JSON.parse(raw);
-    } catch (e) {
+      const parsed = JSON.parse(raw);
+      return parsed;
+    } catch (parseErr) {
       console.error("🚨 Model returned invalid JSON:\n", raw);
       throw new Error("Parsing error: model returned invalid JSON structure.");
     }
 
-    return raw;
   } catch (err) {
     console.error("❌ Failed to generate course plan:", err);
-    throw new Error("Parsing error: " + err.message);
+    throw new Error("API error: " + err.message);
   }
 }
