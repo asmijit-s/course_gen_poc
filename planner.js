@@ -8,8 +8,15 @@ const groq = new Groq({
 });
 
 function buildSystemPrompt(courseTitle, courseOverview, targetAudience, numModules) {
-  return `
-Create a JSON course plan. Use this EXACT structure. Replace content but keep structure identical.
+  return `You are an expert course designer. Create a comprehensive course plan in PERFECT JSON format.
+
+COURSE INFORMATION:
+- Title: ${courseTitle}
+- Overview: ${courseOverview}
+- Target Audience: ${targetAudience}
+- Number of Modules Required: ${numModules}
+
+You MUST return a JSON object with this EXACT structure. Every field is MANDATORY and must have the correct field name:
 
 {
   "courseTitle": "${courseTitle}",
@@ -17,71 +24,282 @@ Create a JSON course plan. Use this EXACT structure. Replace content but keep st
   "audience": "${targetAudience}",
   "modules": [
     {
-      "moduleName": "Module 1",
-      "description": "Description here",
+      "moduleName": "Module 1: [Descriptive Name]",
+      "description": "A detailed description of at least 20 words explaining what students will learn in this module and why it is important.",
       "submodules": [
         {
-          "name": "Submodule 1",
-          "description": "Description here",
-          "videoLecture": "Video title",
-          "summary": "Summary here",
+          "name": "Submodule 1.1: [Specific Topic]",
+          "description": "A clear description of at least 15 words explaining the specific concepts covered in this submodule.",
+          "videoLecture": "Descriptive Video Title Here",
+          "summary": "A concise summary of at least 10 words highlighting the key learning points.",
           "quiz": [
             {
-              "question": "Question here?",
-              "options": ["A", "B", "C", "D"],
-              "answer": "A"
+              "question": "A clear multiple choice question ending with a question mark?",
+              "options": ["First option", "Second option", "Third option", "Fourth option"],
+              "answer": "First option"
             }
           ]
         }
       ],
-      "assignment": "Assignment description"
+      "assignment": "A practical assignment description of at least 15 words that helps students apply what they learned."
     }
   ],
   "capstoneProject": {
-    "title": "Project title",
-    "description": "Project description"
+    "title": "Meaningful Project Title",
+    "description": "A comprehensive project description of at least 20 words that ties together all course concepts."
   }
 }
 
-Requirements:
-- Create exactly ${numModules} modules
-- Each module has 1-2 submodules maximum
-- Keep all text under 50 characters
-- Ensure all brackets and commas are correct
-- Return only valid JSON, no other text`;
+CRITICAL JSON REQUIREMENTS:
+1. MUST have exactly ${numModules} modules in the "modules" array
+2. Each submodule MUST have ALL 5 fields: "name", "description", "videoLecture", "summary", "quiz"
+3. Pay special attention to the "summary" field - it MUST be labeled correctly as "summary":
+4. Each quiz MUST be an array with exactly 1 question object
+5. Each question MUST have exactly 4 options in "options" array
+6. The "answer" MUST be one of the exact strings from "options"
+7. NO missing commas, brackets, or quotes
+8. NO trailing commas
+9. ALL field names must be exactly as shown with proper quotes
+
+DOUBLE CHECK:
+- Every submodule has: name, description, videoLecture, summary, quiz
+- The "summary" field is properly labeled with quotes
+- All brackets and braces are properly closed
+- No trailing commas before closing brackets
+
+Return ONLY valid JSON, no extra text, no markdown, no explanations.`;
 }
 
 export async function generateCoursePlan(courseTitle, courseOverview, targetAudience, numModules) {
   const systemPrompt = buildSystemPrompt(courseTitle, courseOverview, targetAudience, numModules);
 
-  try {
-    const response = await groq.chat.completions.create({
-      model: "llama3-70b-8192",
-      response_format: { type: "json_object" },
-      messages: [
-        {
-          role: "system",
-          content: systemPrompt,
-        }
-      ],
-      max_tokens: 4000, // Add this to prevent truncation
-      temperature: 0.1,  // Lower temperature for more consistent output
-    });
+  // Retry logic for better reliability
+  const maxRetries = 3;
+  let lastError;
 
-    const raw = response.choices[0]?.message?.content;
-    console.log("Raw response length:", raw?.length);
-    console.log("Raw response:", raw);
-
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
     try {
-      const parsed = JSON.parse(raw);
-      return parsed;
-    } catch (parseErr) {
-      console.error("🚨 Model returned invalid JSON:\n", raw);
-      throw new Error("Parsing error: model returned invalid JSON structure.");
-    }
+      console.log(`🎯 Generating course plan for: ${courseTitle} (Attempt ${attempt}/${maxRetries})`);
+      
+      const response = await groq.chat.completions.create({
+        model: "llama3-70b-8192",
+        response_format: { type: "json_object" },
+        messages: [
+          {
+            role: "system",
+            content: systemPrompt,
+          },
+          {
+            role: "user",
+            content: `Generate a complete course plan with proper JSON structure. 
+            
+            CRITICAL: Each submodule MUST have these 5 fields with proper labels:
+            - "name": "..."
+            - "description": "..."
+            - "videoLecture": "..."
+            - "summary": "..." (THIS FIELD IS OFTEN MISSING THE LABEL!)
+            - "quiz": [...]
+            
+            Course Details:
+            - Title: ${courseTitle}
+            - Overview: ${courseOverview}
+            - Target Audience: ${targetAudience}
+            - Number of Modules: ${numModules}
+            
+            Return ONLY valid, complete JSON with all field labels properly quoted.`
+          }
+        ],
+        max_tokens: 5000, // Increased token limit
+        temperature: 0.1,  // Even lower temperature
+        top_p: 0.9,
+        frequency_penalty: 0.0,
+        presence_penalty: 0.0
+      });
 
-  } catch (err) {
-    console.error("❌ Failed to generate course plan:", err);
-    throw new Error("API error: " + err.message);
+      const raw = response.choices[0]?.message?.content;
+      console.log(`📝 Raw response preview (Attempt ${attempt}):`, raw?.substring(0, 200) + "...");
+
+      if (!raw) {
+        throw new Error("Empty response from API");
+      }
+
+      // Clean the response to ensure it's valid JSON
+      let cleanedResponse = raw.trim();
+      
+      // Remove any markdown code blocks if present
+      if (cleanedResponse.startsWith('```json')) {
+        cleanedResponse = cleanedResponse.replace(/```json\n?/, '').replace(/\n?```$/, '');
+      } else if (cleanedResponse.startsWith('```')) {
+        cleanedResponse = cleanedResponse.replace(/```\n?/, '').replace(/\n?```$/, '');
+      }
+
+      // Fix common JSON issues
+      cleanedResponse = fixCommonJsonIssues(cleanedResponse);
+
+      try {
+        const parsed = JSON.parse(cleanedResponse);
+        
+        // Comprehensive validation
+        validateCourseStructure(parsed, numModules);
+        
+        console.log("✅ Successfully generated and validated course for:", parsed.courseTitle);
+        return parsed;
+        
+      } catch (parseErr) {
+        console.error(`🚨 JSON Parse/Validation Error (Attempt ${attempt}):`, parseErr.message);
+        if (attempt === maxRetries) {
+          console.error("Raw response:", raw);
+          console.error("Cleaned response:", cleanedResponse);
+          
+          // Try to identify the specific issue
+          identifyJsonIssues(cleanedResponse);
+        }
+        lastError = new Error("Failed to parse/validate AI response: " + parseErr.message);
+        
+        // If it's the last attempt, throw the error
+        if (attempt === maxRetries) {
+          throw lastError;
+        }
+        
+        // Wait a bit before retrying
+        await new Promise(resolve => setTimeout(resolve, 1000 * attempt));
+        continue;
+      }
+
+    } catch (err) {
+      console.error(`❌ API Error (Attempt ${attempt}):`, err.message);
+      lastError = err;
+      
+      if (attempt === maxRetries) {
+        throw new Error("Failed to generate course plan after " + maxRetries + " attempts: " + err.message);
+      }
+      
+      // Wait a bit before retrying
+      await new Promise(resolve => setTimeout(resolve, 1000 * attempt));
+    }
   }
+}
+
+// Enhanced function to fix common JSON issues
+function fixCommonJsonIssues(jsonString) {
+  let fixed = jsonString;
+  
+  // Fix the specific issue where summary field is missing its label
+  // Look for patterns where a string appears after videoLecture without a field name
+  fixed = fixed.replace(/("videoLecture":\s*"[^"]*",\s*)("(?:[^"\\]|\\.)*",)/g, '$1"summary": $2');
+  
+  // Fix missing closing brackets
+  const openBraces = (fixed.match(/{/g) || []).length;
+  const closeBraces = (fixed.match(/}/g) || []).length;
+  if (openBraces > closeBraces) {
+    const missing = openBraces - closeBraces;
+    fixed += '}'.repeat(missing);
+    console.log(`🔧 Fixed ${missing} missing closing brace(s)`);
+  }
+  
+  // Fix missing closing square brackets
+  const openBrackets = (fixed.match(/\[/g) || []).length;
+  const closeBrackets = (fixed.match(/\]/g) || []).length;
+  if (openBrackets > closeBrackets) {
+    const missing = openBrackets - closeBrackets;
+    fixed += ']'.repeat(missing);
+    console.log(`🔧 Fixed ${missing} missing closing bracket(s)`);
+  }
+  
+  // Remove trailing commas
+  fixed = fixed.replace(/,(\s*[}\]])/g, '$1');
+  
+  // Fix orphaned strings (strings without field names)
+  // This is a more aggressive fix for the summary field issue
+  fixed = fixed.replace(/,\s*"([^"]*)",\s*"quiz":/g, ', "summary": "$1", "quiz":');
+  
+  return fixed;
+}
+
+// Function to identify specific JSON issues
+function identifyJsonIssues(jsonString) {
+  console.log("🔍 Analyzing JSON structure...");
+  
+  // Check for common field issues
+  const submodulePattern = /"submodules":\s*\[\s*{[^}]*}/g;
+  const matches = jsonString.match(submodulePattern);
+  
+  if (matches) {
+    matches.forEach((match, index) => {
+      const hasName = match.includes('"name":');
+      const hasDescription = match.includes('"description":');
+      const hasVideoLecture = match.includes('"videoLecture":');
+      const hasSummary = match.includes('"summary":');
+      const hasQuiz = match.includes('"quiz":');
+      
+      console.log(`Submodule ${index + 1} fields:`, {
+        name: hasName,
+        description: hasDescription,
+        videoLecture: hasVideoLecture,
+        summary: hasSummary,
+        quiz: hasQuiz
+      });
+      
+      if (!hasSummary) {
+        console.log(`❌ Submodule ${index + 1} is missing "summary" field label!`);
+      }
+    });
+  }
+}
+
+// Enhanced function to validate course structure
+function validateCourseStructure(parsed, numModules) {
+  if (!parsed.courseTitle || !parsed.overview || !parsed.audience || !parsed.modules || !parsed.capstoneProject) {
+    throw new Error("Missing required top-level fields in generated JSON");
+  }
+  
+  // Validate modules structure
+  if (!Array.isArray(parsed.modules) || parsed.modules.length !== parseInt(numModules)) {
+    throw new Error(`Expected exactly ${numModules} modules, got ${parsed.modules?.length || 0}`);
+  }
+  
+  // Validate each module
+  for (let i = 0; i < parsed.modules.length; i++) {
+    const module = parsed.modules[i];
+    if (!module.moduleName || !module.description || !module.submodules || !module.assignment) {
+      throw new Error(`Module ${i + 1} is missing required fields: ${JSON.stringify(Object.keys(module))}`);
+    }
+    
+    // Validate submodules
+    if (!Array.isArray(module.submodules) || module.submodules.length === 0) {
+      throw new Error(`Module ${i + 1} must have at least 1 submodule`);
+    }
+    
+    for (let j = 0; j < module.submodules.length; j++) {
+      const submodule = module.submodules[j];
+      
+      // Check for all required fields
+      const requiredFields = ['name', 'description', 'videoLecture', 'summary', 'quiz'];
+      const missingFields = requiredFields.filter(field => !submodule[field]);
+      
+      if (missingFields.length > 0) {
+        throw new Error(`Module ${i + 1}, Submodule ${j + 1} is missing required fields: ${missingFields.join(', ')}`);
+      }
+      
+      // Validate quiz
+      if (!Array.isArray(submodule.quiz) || submodule.quiz.length !== 1) {
+        throw new Error(`Module ${i + 1}, Submodule ${j + 1} must have exactly 1 quiz question`);
+      }
+      
+      const quiz = submodule.quiz[0];
+      if (!quiz.question || !quiz.options || !quiz.answer) {
+        throw new Error(`Module ${i + 1}, Submodule ${j + 1} quiz is missing required fields`);
+      }
+      
+      if (!Array.isArray(quiz.options) || quiz.options.length !== 4) {
+        throw new Error(`Module ${i + 1}, Submodule ${j + 1} quiz must have exactly 4 options`);
+      }
+      
+      if (!quiz.options.includes(quiz.answer)) {
+        throw new Error(`Module ${i + 1}, Submodule ${j + 1} quiz answer must be one of the options`);
+      }
+    }
+  }
+  
+  console.log("✅ Course structure validation passed");
 }
