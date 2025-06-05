@@ -16,7 +16,7 @@ COURSE INFORMATION:
 - Target Audience: ${targetAudience}
 - Number of Modules Required: ${numModules}
 
-You MUST return a JSON object with this EXACT structure. Every field is MANDATORY and must have the correct field name:
+You MUST return a JSON object with this EXACT structure. Only structural change you must do is, produce as many submodules as required. Comprehensive topic coverage is a priority. Every field is MANDATORY and must have the correct field name:
 
 {
   "courseTitle": "${courseTitle}",
@@ -49,17 +49,23 @@ You MUST return a JSON object with this EXACT structure. Every field is MANDATOR
     "description": "A comprehensive project description of at least 20 words that ties together all course concepts."
   }
 }
+SUBMODULE GUIDELINES:
+- Each module must include AS MANY submodules as needed to fully cover the module’s topic.
+- Avoid generating a fixed or default number of submodules like 2 unless it is truly sufficient.
+- Deep and granular topic decomposition is preferred. Think: 3 to 6+ submodules per module if needed.
+- Each submodule must address a **unique** and **distinct concept**, not duplicates or overlapping ideas.
 
 CRITICAL JSON REQUIREMENTS:
 1. MUST have exactly ${numModules} modules in the "modules" array
 2. Each submodule MUST have ALL 5 fields: "name", "description", "videoLecture", "summary", "quiz"
-3. Pay special attention to the "summary" field - it MUST be labeled correctly as "summary":
-4. Each quiz MUST be an array with exactly 1 question object
-5. Each question MUST have exactly 4 options in "options" array
-6. The "answer" MUST be one of the exact strings from "options"
-7. NO missing commas, brackets, or quotes
-8. NO trailing commas
-9. ALL field names must be exactly as shown with proper quotes
+3. Make sure number of submodules exhaust the module topic.
+4. Pay special attention to the "summary" field - it MUST be labeled correctly as "summary":
+5. Each quiz MUST be an array with exactly 1 question object
+6. Each question MUST have exactly 4 options in "options" array
+7. The "answer" MUST be one of the exact strings from "options"
+8. NO missing commas, brackets, or quotes
+9. NO trailing commas
+10. ALL field names must be exactly as shown with proper quotes
 
 DOUBLE CHECK:
 - Every submodule has: name, description, videoLecture, summary, quiz
@@ -74,15 +80,15 @@ export async function generateCoursePlan(courseTitle, courseOverview, targetAudi
   const systemPrompt = buildSystemPrompt(courseTitle, courseOverview, targetAudience, numModules);
 
   // Retry logic for better reliability
-  const maxRetries = 3;
+  const maxRetries = 5;
   let lastError;
 
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     try {
-      console.log(`🎯 Generating course plan for: ${courseTitle} (Attempt ${attempt}/${maxRetries})`);
+      console.log(`Generating course plan for: ${courseTitle} (Attempt ${attempt}/${maxRetries})`);
       
       const response = await groq.chat.completions.create({
-        model: "llama3-70b-8192",
+        model: "qwen-qwq-32b",
         response_format: { type: "json_object" },
         messages: [
           {
@@ -105,19 +111,20 @@ export async function generateCoursePlan(courseTitle, courseOverview, targetAudi
             - Overview: ${courseOverview}
             - Target Audience: ${targetAudience}
             - Number of Modules: ${numModules}
-            
+            Ensure the difficulty of topics is in line with bloom's taxonomy after analysing ${targetAudience}.
+            The initial difficulty will be decided by ${targetAudience} and described in ${courseOverview} and go to advanced difficulty.
+            Structure the modules and their orders as per your reasoning.
             Return ONLY valid, complete JSON with all field labels properly quoted.`
           }
         ],
-        max_tokens: 5000, // Increased token limit
-        temperature: 0.1,  // Even lower temperature
+        temperature: 0.2,  // Even lower temperature
         top_p: 0.9,
         frequency_penalty: 0.0,
         presence_penalty: 0.0
       });
 
       const raw = response.choices[0]?.message?.content;
-      console.log(`📝 Raw response preview (Attempt ${attempt}):`, raw?.substring(0, 200) + "...");
+      console.log(` Raw response preview (Attempt ${attempt}):`, raw?.substring(0, 200) + "...");
 
       if (!raw) {
         throw new Error("Empty response from API");
@@ -142,11 +149,11 @@ export async function generateCoursePlan(courseTitle, courseOverview, targetAudi
         // Comprehensive validation
         validateCourseStructure(parsed, numModules);
         
-        console.log("✅ Successfully generated and validated course for:", parsed.courseTitle);
+        console.log("Successfully generated and validated course for:", parsed.courseTitle);
         return parsed;
         
       } catch (parseErr) {
-        console.error(`🚨 JSON Parse/Validation Error (Attempt ${attempt}):`, parseErr.message);
+        console.error(`JSON Parse/Validation Error (Attempt ${attempt}):`, parseErr.message);
         if (attempt === maxRetries) {
           console.error("Raw response:", raw);
           console.error("Cleaned response:", cleanedResponse);
@@ -165,9 +172,8 @@ export async function generateCoursePlan(courseTitle, courseOverview, targetAudi
         await new Promise(resolve => setTimeout(resolve, 1000 * attempt));
         continue;
       }
-
     } catch (err) {
-      console.error(`❌ API Error (Attempt ${attempt}):`, err.message);
+      console.error(`API Error (Attempt ${attempt}):`, err.message);
       lastError = err;
       
       if (attempt === maxRetries) {
@@ -194,7 +200,7 @@ function fixCommonJsonIssues(jsonString) {
   if (openBraces > closeBraces) {
     const missing = openBraces - closeBraces;
     fixed += '}'.repeat(missing);
-    console.log(`🔧 Fixed ${missing} missing closing brace(s)`);
+    console.log(`Fixed ${missing} missing closing brace(s)`);
   }
   
   // Fix missing closing square brackets
@@ -203,7 +209,7 @@ function fixCommonJsonIssues(jsonString) {
   if (openBrackets > closeBrackets) {
     const missing = openBrackets - closeBrackets;
     fixed += ']'.repeat(missing);
-    console.log(`🔧 Fixed ${missing} missing closing bracket(s)`);
+    console.log(`Fixed ${missing} missing closing bracket(s)`);
   }
   
   // Remove trailing commas
@@ -218,7 +224,7 @@ function fixCommonJsonIssues(jsonString) {
 
 // Function to identify specific JSON issues
 function identifyJsonIssues(jsonString) {
-  console.log("🔍 Analyzing JSON structure...");
+  console.log("Analyzing JSON structure...");
   
   // Check for common field issues
   const submodulePattern = /"submodules":\s*\[\s*{[^}]*}/g;
@@ -241,7 +247,7 @@ function identifyJsonIssues(jsonString) {
       });
       
       if (!hasSummary) {
-        console.log(`❌ Submodule ${index + 1} is missing "summary" field label!`);
+        console.log(`Submodule ${index + 1} is missing "summary" field label!`);
       }
     });
   }
@@ -301,5 +307,6 @@ function validateCourseStructure(parsed, numModules) {
     }
   }
   
-  console.log("✅ Course structure validation passed");
+  console.log("Course structure validation passed");
+
 }
