@@ -12,6 +12,31 @@
 
     h1 {
       text-align: center;
+      color: #333;
+    }
+
+    .server-config {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 15px;
+      background: #e9ecef;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .server-config label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .server-config input {
+      width: 100%;
+      padding: 5px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
     }
 
     form {
@@ -27,6 +52,7 @@
       display: block;
       margin-top: 15px;
       font-weight: bold;
+      color: #555;
     }
 
     input[type="text"],
@@ -37,6 +63,7 @@
       margin-top: 5px;
       border-radius: 4px;
       border: 1px solid #ccc;
+      box-sizing: border-box;
     }
 
     button {
@@ -47,39 +74,165 @@
       border: none;
       border-radius: 4px;
       cursor: pointer;
+      font-size: 16px;
     }
 
     button:hover {
       background-color: #0056b3;
     }
 
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
     #result {
-      max-width: 600px;
+      max-width: 800px;
       margin: 30px auto;
-      background: #eef;
+      background: #fff;
       padding: 20px;
       border-radius: 8px;
-      white-space: pre-wrap;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: none;
+    }
+
+    .course-title {
+      color: #007bff;
+      border-bottom: 2px solid #007bff;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .module {
+      margin-bottom: 25px;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 6px;
+      border-left: 4px solid #007bff;
+    }
+
+    .module h3 {
+      margin-top: 0;
+      color: #007bff;
+    }
+
+    .submodule {
+      margin: 15px 0;
+      padding: 10px;
+      background: #fff;
+      border-radius: 4px;
+      border: 1px solid #e9ecef;
+    }
+
+    .submodule h4 {
+      margin-top: 0;
+      color: #495057;
+      font-size: 16px;
+    }
+
+    .video-lecture {
+      background: #e8f4fd;
+      padding: 8px;
+      border-radius: 4px;
+      margin: 8px 0;
+      font-style: italic;
+    }
+
+    .quiz {
+      background: #e7f3ff;
+      padding: 12px;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+
+    .quiz h5 {
+      margin: 0 0 8px 0;
+      color: #0056b3;
+    }
+
+    .quiz-options {
+      margin: 8px 0;
+      padding-left: 15px;
+    }
+
+    .quiz-answer {
+      font-weight: bold;
+      color: #28a745;
+      margin-top: 8px;
+    }
+
+    .assignment {
+      background: #fff3cd;
+      padding: 10px;
+      border-radius: 4px;
+      margin-top: 10px;
+      border-left: 3px solid #ffc107;
+    }
+
+    .capstone {
+      background: #d4edda;
+      border: 1px solid #c3e6cb;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 30px;
+    }
+
+    .capstone h3 {
+      color: #155724;
+      margin-top: 0;
+    }
+
+    .loading {
+      text-align: center;
+      color: #666;
+      font-style: italic;
+      padding: 20px;
+    }
+
+    .error {
+      color: #dc3545;
+      background: #f8d7da;
+      border: 1px solid #f5c6cb;
+      padding: 15px;
+      border-radius: 4px;
+      margin-top: 20px;
+    }
+
+    .success {
+      color: #155724;
+      background: #d4edda;
+      border: 1px solid #c3e6cb;
+      padding: 15px;
+      border-radius: 4px;
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
 
   <h1>Course Planner</h1>
+  
+  <div class="server-config">
+    <strong>Server Configuration:</strong>
+    <label for="serverUrl">Server URL:</label>
+    <input type="text" id="serverUrl" value="http://localhost:3003" placeholder="http://localhost:3003">
+    <small>Make sure your Express server is running on this URL</small>
+  </div>
+
   <form id="courseForm">
     <label for="title">Course Title</label>
-    <input type="text" id="title" name="courseTitle" required>
+    <input type="text" id="title" name="courseTitle" required placeholder="e.g., Introduction to Data Science with Python">
 
     <label for="overview">Course Overview</label>
-    <textarea id="overview" name="courseOverview" rows="4" required></textarea>
+    <textarea id="overview" name="courseOverview" rows="4" required placeholder="Describe what this course will cover and its main objectives..."></textarea>
 
     <label for="audience">Target Audience</label>
-    <input type="text" id="audience" name="targetAudience" required>
+    <input type="text" id="audience" name="targetAudience" required placeholder="e.g., beginners with basic programming knowledge">
 
     <label for="modules">Number of Modules</label>
-    <input type="number" id="modules" name="numModules" min="1" required>
+    <input type="number" id="modules" name="numModules" min="1" max="10" required value="3">
 
-    <button type="submit">Generate Plan</button>
+    <button type="submit" id="generateBtn">Generate Course Plan</button>
   </form>
 
   <div id="result"></div>
@@ -92,29 +245,159 @@
       const courseOverview = document.getElementById("overview").value;
       const targetAudience = document.getElementById("audience").value;
       const numModules = parseInt(document.getElementById("modules").value);
+      const serverUrl = document.getElementById("serverUrl").value.trim();
 
-      const response = await fetch("/generate-plan", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          courseTitle,
-          courseOverview,
-          targetAudience,
-          numModules
-        })
-      });
-
+      const generateBtn = document.getElementById("generateBtn");
       const resultDiv = document.getElementById("result");
 
-      if (response.ok) {
-        const data = await response.json();
-        resultDiv.textContent = JSON.stringify(data.data, null, 2);
-      } else {
-        const err = await response.json();
-        resultDiv.textContent = "Error: " + err.error;
+      // Show loading state
+      generateBtn.disabled = true;
+      generateBtn.textContent = "Generating...";
+      resultDiv.style.display = "block";
+      resultDiv.innerHTML = '<div class="loading">Generating course plan... This may take a few moments.</div>';
+
+      try {
+        const response = await fetch(`${serverUrl}/generate-plan`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            courseTitle,
+            courseOverview,
+            targetAudience,
+            numModules
+          })
+        });
+
+        const rawText = await response.text();
+        let data;
+
+        try {
+          data = JSON.parse(rawText);
+        } catch (parseErr) {
+          throw new Error("Server returned invalid JSON: " + rawText);
+        }
+
+        if (response.ok && data.success) {
+          // Handle the course data (might be stringified JSON)
+          let courseData;
+          try {
+            courseData = typeof data.data === "string" ? JSON.parse(data.data) : data.data;
+          } catch (err) {
+            courseData = data.data; // Use as-is if parsing fails
+          }
+
+          displayCoursePlan(courseData);
+        } else {
+          throw new Error(data.error || `Server Error: ${response.status}`);
+        }
+
+      } catch (error) {
+        console.error("Error:", error);
+        resultDiv.innerHTML = `<div class="error">
+          <strong>Error generating course plan:</strong><br>
+          ${error.message}<br><br>
+          <small>Make sure your server is running at ${serverUrl}</small>
+        </div>`;
+      } finally {
+        // Reset button
+        generateBtn.disabled = false;
+        generateBtn.textContent = "Generate Course Plan";
       }
+    });
+
+    function displayCoursePlan(courseData) {
+      const resultDiv = document.getElementById("result");
+      
+      let html = '<div class="success">Course plan generated successfully!</div>';
+      
+      // Course title (if available)
+      if (courseData.courseTitle) {
+        html += `<h2 class="course-title">${courseData.courseTitle}</h2>`;
+      }
+
+      // Modules
+      if (courseData.modules && Array.isArray(courseData.modules)) {
+        courseData.modules.forEach((module, index) => {
+          html += `<div class="module">
+            <h3>Module ${index + 1}: ${module.moduleName || 'Untitled Module'}</h3>
+            <p>${module.description || 'No description available'}</p>`;
+
+          // Submodules
+          if (module.submodules && Array.isArray(module.submodules)) {
+            module.submodules.forEach((submodule, subIndex) => {
+              html += `<div class="submodule">
+                <h4>${subIndex + 1}. ${submodule.name || 'Untitled Submodule'}</h4>
+                <p>${submodule.description || 'No description available'}</p>`;
+
+              // Video lecture
+              if (submodule.videoLecture) {
+                html += `<div class="video-lecture">
+                  <strong>Video Lecture:</strong> ${submodule.videoLecture}
+                </div>`;
+              }
+
+              // Summary
+              if (submodule.summary) {
+                html += `<p><strong>Summary:</strong> ${submodule.summary}</p>`;
+              }
+
+              // Quiz
+              if (submodule.quiz && Array.isArray(submodule.quiz) && submodule.quiz.length > 0) {
+                const quiz = submodule.quiz[0];
+                html += `<div class="quiz">
+                  <h5>Quiz Question:</h5>
+                  <p>${quiz.question || 'No question available'}</p>`;
+
+                if (quiz.options && Array.isArray(quiz.options)) {
+                  html += '<div class="quiz-options">';
+                  quiz.options.forEach((option, optIndex) => {
+                    const letter = String.fromCharCode(65 + optIndex); // A, B, C, D
+                    html += `<div>${letter}. ${option}</div>`;
+                  });
+                  html += '</div>';
+                }
+
+                if (quiz.answer) {
+                  html += `<div class="quiz-answer">Answer: ${quiz.answer}</div>`;
+                }
+
+                html += '</div>';
+              }
+
+              html += '</div>'; // Close submodule
+            });
+          }
+
+          // Module assignment
+          if (module.assignment) {
+            html += `<div class="assignment">
+              <strong>Assignment:</strong> ${module.assignment}
+            </div>`;
+          }
+
+          html += '</div>'; // Close module
+        });
+      }
+
+      // Capstone project
+      if (courseData.capstoneProject) {
+        html += `<div class="capstone">
+          <h3>Capstone Project: ${courseData.capstoneProject.title || 'Final Project'}</h3>
+          <p>${courseData.capstoneProject.description || 'No description available'}</p>
+        </div>`;
+      }
+
+      resultDiv.innerHTML = html;
+    }
+
+    // Pre-fill form with sample data for testing
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('title').value = 'Introduction to Data Science with Python';
+      document.getElementById('overview').value = 'The course will cover foundational statistics, data handling, machine learning, and real-world applications.';
+      document.getElementById('audience').value = 'beginners with basic programming knowledge';
+      document.getElementById('modules').value = '3';
     });
   </script>
 
