@@ -1,0 +1,499 @@
+{
+  "courseTitle": "Prompt Engineering for Designers and Writers",
+  "overview": " The course should teach how to craft effective prompts to generate visual art, stories, ads, or product ideas using AI tools like ChatGPT, MidJourney, and DALL·E.\nExplain prompt structure, specificity, constraints, and iteration.\nFocus on creativity, tone, and clarity — no coding involved.\nInclude visual vs. textual prompt differences, with demos in each module.\nEach lesson should have examples, comparison outputs, and prompt-improvement tasks.\nInclude real-world creative challenges: storyboarding, branding, UI mockups, etc.\n",
+  "audience": "Content creators, writers, marketers, and visual designers.",
+  "modules": [
+    {
+      "moduleName": "Module 1: Introduction to Prompt Engineering",
+      "description": "This module introduces the core concepts of prompt engineering, its importance in AI-driven creative processes, and the tools we'll be using. It's crucial for understanding the foundation of effective prompt creation.",
+      "submodules": [
+        {
+          "name": "Submodule 1.1: What is Prompt Engineering?",
+          "description": "Defining prompt engineering, its role in AI, and its applications in design and writing.",
+          "videoLecture": "Introduction to Prompt Engineering Concepts",
+          "summary": "Prompt engineering is crafting effective instructions for AI models.",
+          "quiz": [
+            {
+              "question": "What is the primary goal of prompt engineering?",
+              "options": [
+                "Generating desired outputs from AI models",
+                "Coding AI algorithms",
+                "Designing user interfaces",
+                "Analyzing market trends"
+              ],
+              "answer": "Generating desired outputs from AI models"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 1.2: Key Principles of Effective Prompts",
+          "description": "Exploring the fundamental principles like clarity, specificity, and conciseness in prompt design.",
+          "videoLecture": "Principles of Effective Prompt Design",
+          "summary": "Clarity, specificity, and conciseness are key to effective prompts.",
+          "quiz": [
+            {
+              "question": "Which of the following is NOT a key principle of effective prompts?",
+              "options": [
+                "Clarity",
+                "Specificity",
+                "Conciseness",
+                "Ambiguity"
+              ],
+              "answer": "Ambiguity"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 1.3: Overview of AI Tools: ChatGPT, MidJourney, DALL·E",
+          "description": "A brief introduction to the capabilities and limitations of ChatGPT, MidJourney, and DALL·E.",
+          "videoLecture": "AI Tools for Creative Prompting",
+          "summary": "Understanding the strengths of ChatGPT, MidJourney, and DALL·E.",
+          "quiz": [
+            {
+              "question": "Which AI tool is primarily used for generating images from text prompts?",
+              "options": [
+                "ChatGPT",
+                "MidJourney",
+                "Google Docs",
+                "Slack"
+              ],
+              "answer": "MidJourney"
+            }
+          ]
+        }
+      ],
+      "assignment": "Write three different prompts for generating a logo design using MidJourney, focusing on clarity and specificity."
+    },
+    {
+      "moduleName": "Module 2: Prompt Structure and Syntax",
+      "description": "This module dives into the structure of prompts, covering elements like keywords, modifiers, and context setting. Understanding prompt syntax is crucial for predictable results.",
+      "submodules": [
+        {
+          "name": "Submodule 2.1: Deconstructing a Prompt: Keywords and Modifiers",
+          "description": "Identifying and using keywords and modifiers to refine prompt outputs.",
+          "videoLecture": "Understanding Prompt Keywords and Modifiers",
+          "summary": "Keywords and modifiers shape the AI's interpretation of the prompt.",
+          "quiz": [
+            {
+              "question": "What is the role of a modifier in a prompt?",
+              "options": [
+                "To define the main subject",
+                "To refine or alter the subject",
+                "To set the overall tone",
+                "To specify the output format"
+              ],
+              "answer": "To refine or alter the subject"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 2.2: Setting the Context: Background and Perspective",
+          "description": "Adding context to prompts to guide the AI towards the desired outcome.",
+          "videoLecture": "Adding Context to Your Prompts",
+          "summary": "Context provides necessary background for the AI to understand the prompt.",
+          "quiz": [
+            {
+              "question": "Why is context important in prompt engineering?",
+              "options": [
+                "It makes the prompt shorter",
+                "It guides the AI towards the desired outcome",
+                "It is not important",
+                "It is only important for image generation"
+              ],
+              "answer": "It guides the AI towards the desired outcome"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 2.3: Negative Prompting Techniques",
+          "description": "Using negative prompts to exclude unwanted elements from the generated output.",
+          "videoLecture": "Using Negative Prompts Effectively",
+          "summary": "Negative prompts help refine outputs by excluding unwanted elements.",
+          "quiz": [
+            {
+              "question": "What is the purpose of a negative prompt?",
+              "options": [
+                "To include specific elements",
+                "To exclude specific elements",
+                "To define the overall style",
+                "To increase the prompt's length"
+              ],
+              "answer": "To exclude specific elements"
+            }
+          ]
+        }
+      ],
+      "assignment": "Create a prompt for generating a futuristic city landscape, and then create a negative prompt to exclude specific elements like cars or skyscrapers."
+    },
+    {
+      "moduleName": "Module 3: Specificity and Constraints",
+      "description": "This module focuses on how to use specificity and constraints to control the AI's output. This is essential for achieving precise and predictable results in creative projects.",
+      "submodules": [
+        {
+          "name": "Submodule 3.1: The Power of Specific Details",
+          "description": "Using specific details to guide the AI towards the desired output.",
+          "videoLecture": "The Importance of Specificity in Prompts",
+          "summary": "Specific details lead to more accurate and predictable AI outputs.",
+          "quiz": [
+            {
+              "question": "Why is specificity important in prompt engineering?",
+              "options": [
+                "It makes the prompt shorter",
+                "It helps the AI understand the desired output",
+                "It is not important",
+                "It is only important for text generation"
+              ],
+              "answer": "It helps the AI understand the desired output"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 3.2: Imposing Constraints for Creative Direction",
+          "description": "Using constraints to limit the AI's creativity and guide it towards a specific style or theme.",
+          "videoLecture": "Using Constraints for Creative Direction",
+          "summary": "Constraints can help focus the AI's creativity and achieve a specific style.",
+          "quiz": [
+            {
+              "question": "How can constraints be used in prompt engineering?",
+              "options": [
+                "To limit the AI's creativity",
+                "To guide the AI towards a specific style",
+                "Both of the above",
+                "None of the above"
+              ],
+              "answer": "Both of the above"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 3.3: Balancing Specificity and Flexibility",
+          "description": "Finding the right balance between specificity and flexibility to allow for creative exploration.",
+          "videoLecture": "Balancing Specificity and Flexibility",
+          "summary": "Balancing specificity and flexibility allows for both control and creative exploration.",
+          "quiz": [
+            {
+              "question": "What is the key to balancing specificity and flexibility in prompt engineering?",
+              "options": [
+                "Using only specific details",
+                "Using only general terms",
+                "Finding the right balance between the two",
+                "Ignoring both specificity and flexibility"
+              ],
+              "answer": "Finding the right balance between the two"
+            }
+          ]
+        }
+      ],
+      "assignment": "Create a prompt for generating a portrait in a specific art style (e.g., Impressionism), using constraints to limit the color palette and composition."
+    },
+    {
+      "moduleName": "Module 4: Iteration and Refinement",
+      "description": "This module covers the iterative process of prompt engineering, emphasizing the importance of experimentation and refinement to achieve optimal results. It's a key skill for mastering AI-driven creativity.",
+      "submodules": [
+        {
+          "name": "Submodule 4.1: The Iterative Prompting Process",
+          "description": "Understanding the iterative process of prompt engineering and its importance.",
+          "videoLecture": "The Iterative Prompting Process Explained",
+          "summary": "Iteration is key to refining prompts and achieving desired results.",
+          "quiz": [
+            {
+              "question": "Why is iteration important in prompt engineering?",
+              "options": [
+                "It makes the prompt shorter",
+                "It helps refine prompts and achieve desired results",
+                "It is not important",
+                "It is only important for text generation"
+              ],
+              "answer": "It helps refine prompts and achieve desired results"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 4.2: Analyzing and Evaluating Outputs",
+          "description": "Developing skills to analyze and evaluate the outputs generated by AI models.",
+          "videoLecture": "Analyzing and Evaluating AI Outputs",
+          "summary": "Analyzing outputs helps identify areas for prompt improvement.",
+          "quiz": [
+            {
+              "question": "What is the purpose of analyzing AI outputs?",
+              "options": [
+                "To make the prompt shorter",
+                "To identify areas for prompt improvement",
+                "It is not important",
+                "It is only important for text generation"
+              ],
+              "answer": "To identify areas for prompt improvement"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 4.3: Refining Prompts Based on Feedback",
+          "description": "Using feedback to refine prompts and improve the quality of the generated outputs.",
+          "videoLecture": "Refining Prompts Based on Feedback",
+          "summary": "Feedback is crucial for refining prompts and improving output quality.",
+          "quiz": [
+            {
+              "question": "How can feedback be used in prompt engineering?",
+              "options": [
+                "To make the prompt shorter",
+                "To refine prompts and improve output quality",
+                "It is not important",
+                "It is only important for text generation"
+              ],
+              "answer": "To refine prompts and improve output quality"
+            }
+          ]
+        }
+      ],
+      "assignment": "Start with a basic prompt for generating a product advertisement, and then iterate on it three times based on the outputs, focusing on improving the clarity and persuasiveness of the ad."
+    },
+    {
+      "moduleName": "Module 5: Visual vs. Textual Prompts",
+      "description": "This module explores the differences between crafting prompts for visual and textual AI models. Understanding these nuances is crucial for effective communication with different AI systems.",
+      "submodules": [
+        {
+          "name": "Submodule 5.1: Key Differences in Prompting for Images and Text",
+          "description": "Identifying the key differences in prompting for image generation versus text generation.",
+          "videoLecture": "Prompting for Images vs. Text",
+          "summary": "Image prompts often require more visual detail than text prompts.",
+          "quiz": [
+            {
+              "question": "What is a key difference between prompting for images and text?",
+              "options": [
+                "Image prompts require more visual detail",
+                "Text prompts require more visual detail",
+                "There is no difference",
+                "Image prompts are always shorter"
+              ],
+              "answer": "Image prompts require more visual detail"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 5.2: Optimizing Prompts for MidJourney and DALL·E",
+          "description": "Learning how to optimize prompts specifically for MidJourney and DALL·E.",
+          "videoLecture": "Optimizing Prompts for Image Generation Tools",
+          "summary": "Understanding the specific requirements of MidJourney and DALL·E.",
+          "quiz": [
+            {
+              "question": "What is important to consider when optimizing prompts for MidJourney and DALL·E?",
+              "options": [
+                "The length of the prompt",
+                "The specific requirements of each tool",
+                "The use of emojis",
+                "The use of hashtags"
+              ],
+              "answer": "The specific requirements of each tool"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 5.3: Optimizing Prompts for ChatGPT",
+          "description": "Learning how to optimize prompts specifically for ChatGPT.",
+          "videoLecture": "Optimizing Prompts for ChatGPT",
+          "summary": "Understanding the specific requirements of ChatGPT for text generation.",
+          "quiz": [
+            {
+              "question": "What is important to consider when optimizing prompts for ChatGPT?",
+              "options": [
+                "The length of the prompt",
+                "The specific requirements of ChatGPT",
+                "The use of emojis",
+                "The use of hashtags"
+              ],
+              "answer": "The specific requirements of ChatGPT"
+            }
+          ]
+        }
+      ],
+      "assignment": "Create a prompt for generating a short story using ChatGPT, and then create a prompt for generating an illustration for that story using MidJourney. Compare the differences in the prompts."
+    },
+    {
+      "moduleName": "Module 6: Creativity, Tone, and Clarity",
+      "description": "This module focuses on injecting creativity, setting the right tone, and maintaining clarity in prompts. These elements are crucial for generating engaging and effective content.",
+      "submodules": [
+        {
+          "name": "Submodule 6.1: Injecting Creativity into Prompts",
+          "description": "Techniques for injecting creativity and originality into prompts.",
+          "videoLecture": "Injecting Creativity into Your Prompts",
+          "summary": "Creativity can be injected through unexpected combinations and metaphors.",
+          "quiz": [
+            {
+              "question": "How can creativity be injected into prompts?",
+              "options": [
+                "By using only specific details",
+                "By using only general terms",
+                "By using unexpected combinations and metaphors",
+                "By ignoring both specificity and flexibility"
+              ],
+              "answer": "By using unexpected combinations and metaphors"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 6.2: Setting the Right Tone and Style",
+          "description": "Using language and structure to set the desired tone and style in the generated output.",
+          "videoLecture": "Setting Tone and Style in Prompts",
+          "summary": "Tone and style can be controlled through careful word choice and sentence structure.",
+          "quiz": [
+            {
+              "question": "How can tone and style be controlled in prompts?",
+              "options": [
+                "By using only specific details",
+                "By using only general terms",
+                "By using careful word choice and sentence structure",
+                "By ignoring both specificity and flexibility"
+              ],
+              "answer": "By using careful word choice and sentence structure"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 6.3: Maintaining Clarity and Avoiding Ambiguity",
+          "description": "Ensuring clarity and avoiding ambiguity in prompts to achieve predictable results.",
+          "videoLecture": "Maintaining Clarity in Prompts",
+          "summary": "Clarity is essential for avoiding misinterpretations by the AI.",
+          "quiz": [
+            {
+              "question": "Why is clarity important in prompt engineering?",
+              "options": [
+                "It makes the prompt shorter",
+                "It helps avoid misinterpretations by the AI",
+                "It is not important",
+                "It is only important for text generation"
+              ],
+              "answer": "It helps avoid misinterpretations by the AI"
+            }
+          ]
+        }
+      ],
+      "assignment": "Create three different prompts for generating a product description, each with a different tone (e.g., humorous, professional, persuasive). Analyze how the tone affects the output."
+    },
+    {
+      "moduleName": "Module 7: Real-World Creative Challenges",
+      "description": "This module applies prompt engineering to real-world creative challenges like storyboarding, branding, and UI mockups. It provides practical experience in using AI for professional design and writing tasks.",
+      "submodules": [
+        {
+          "name": "Submodule 7.1: Prompting for Storyboarding",
+          "description": "Using prompts to generate storyboards for film, animation, or advertising.",
+          "videoLecture": "Prompting for Storyboards",
+          "summary": "Prompts can be used to generate visual sequences for storyboards.",
+          "quiz": [
+            {
+              "question": "What can prompts be used for in storyboarding?",
+              "options": [
+                "To write the script",
+                "To generate visual sequences",
+                "To edit the film",
+                "To create the soundtrack"
+              ],
+              "answer": "To generate visual sequences"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 7.2: Prompting for Branding and Marketing Materials",
+          "description": "Using prompts to generate logos, slogans, and marketing copy.",
+          "videoLecture": "Prompting for Branding and Marketing",
+          "summary": "Prompts can assist in creating branding and marketing materials.",
+          "quiz": [
+            {
+              "question": "What kind of marketing materials can be generated using prompts?",
+              "options": [
+                "Logos",
+                "Slogans",
+                "Marketing copy",
+                "All of the above"
+              ],
+              "answer": "All of the above"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 7.3: Prompting for UI/UX Mockups",
+          "description": "Using prompts to generate UI/UX mockups for websites and mobile apps.",
+          "videoLecture": "Prompting for UI/UX Design",
+          "summary": "Prompts can be used to create initial UI/UX mockups.",
+          "quiz": [
+            {
+              "question": "What can prompts be used for in UI/UX design?",
+              "options": [
+                "To write the code",
+                "To create initial mockups",
+                "To test the app",
+                "To deploy the app"
+              ],
+              "answer": "To create initial mockups"
+            }
+          ]
+        }
+      ],
+      "assignment": "Choose a real-world creative challenge (e.g., designing a logo for a new coffee shop) and use prompt engineering to generate multiple design options. Document your process and results."
+    },
+    {
+      "moduleName": "Module 8: Advanced Prompting Techniques",
+      "description": "This module covers advanced prompting techniques, including few-shot learning, chain-of-thought prompting, and prompt ensembling. These techniques can significantly improve the quality and complexity of AI-generated outputs.",
+      "submodules": [
+        {
+          "name": "Submodule 8.1: Few-Shot Learning",
+          "description": "Using few-shot learning to guide the AI with a limited number of examples.",
+          "videoLecture": "Understanding Few-Shot Learning",
+          "summary": "Few-shot learning uses examples to guide AI with limited data.",
+          "quiz": [
+            {
+              "question": "What is the main idea behind few-shot learning?",
+              "options": [
+                "Using a large amount of data",
+                "Using a limited number of examples",
+                "Ignoring data altogether",
+                "Using only negative examples"
+              ],
+              "answer": "Using a limited number of examples"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 8.2: Chain-of-Thought Prompting",
+          "description": "Using chain-of-thought prompting to encourage the AI to explain its reasoning process.",
+          "videoLecture": "Chain-of-Thought Prompting Explained",
+          "summary": "Chain-of-thought prompting encourages AI to explain its reasoning.",
+          "quiz": [
+            {
+              "question": "What is the purpose of chain-of-thought prompting?",
+              "options": [
+                "To make the prompt shorter",
+                "To encourage the AI to explain its reasoning",
+                "It is not important",
+                "It is only important for text generation"
+              ],
+              "answer": "To encourage the AI to explain its reasoning"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 8.3: Prompt Ensembling",
+          "description": "Combining multiple prompts to generate more diverse and robust outputs.",
+          "videoLecture": "Using Prompt Ensembling Techniques",
+          "summary": "Prompt ensembling combines multiple prompts for diverse outputs.",
+          "quiz": [
+            {
+              "question": "What is the purpose of prompt ensembling?",
+              "options": [
+                "To make the prompt shorter",
+                "To generate more diverse and robust outputs",
+                "It is not important",
+                "It is only important for text generation"
+              ],
+              "answer": "To generate more diverse and robust outputs"
+            }
+          ]
+        }
+      ],
+      "assignment": "Experiment with few-shot learning, chain-of-thought prompting, and prompt ensembling to generate a complex creative output (e.g., a short story with multiple characters and plot twists). Document your process and results."
+    }
+  ],
+  "capstoneProject": {
+    "title": "AI-Powered Creative Campaign",
+    "description": "Design and execute a complete creative campaign (e.g., for a new product or service) using prompt engineering techniques. This project will tie together all course concepts and demonstrate your mastery of prompt engineering."
+  }
+}

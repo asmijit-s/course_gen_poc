@@ -1,0 +1,661 @@
+{
+  "courseTitle": "Powers of AI",
+  "overview": "The course will contain an introduction to the world of AI and ML, history of AI and ML, basic Python programming for machine learning and AI, machine learning, deep learning, generative AI, current areas of research in the field, applications, etc.",
+  "audience": "beginners with basic programming knowledge",
+  "modules": [
+    {
+      "moduleName": "Module 1: Introduction to AI and Machine Learning",
+      "description": "This module introduces the fundamental concepts of AI and ML, their relationship, and real-world applications. Students will understand the basic terminology and the scope of the field.",
+      "submodules": [
+        {
+          "name": "Submodule 1.1: What is Artificial Intelligence?",
+          "description": "Defining AI, its goals, and different types of AI (narrow, general, super). Exploring the Turing Test and its significance.",
+          "videoLecture": "Introduction to Artificial Intelligence",
+          "summary": "AI aims to create intelligent agents that can reason, learn, and act autonomously.",
+          "quiz": [
+            {
+              "question": "What is the primary goal of Artificial Intelligence?",
+              "options": [
+                "To automate tasks",
+                "To create intelligent agents",
+                "To replace human workers",
+                "To predict the future"
+              ],
+              "answer": "To create intelligent agents"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 1.2: What is Machine Learning?",
+          "description": "Defining ML, its relationship to AI, and different types of ML (supervised, unsupervised, reinforcement). Understanding the learning process.",
+          "videoLecture": "Introduction to Machine Learning",
+          "summary": "Machine learning enables systems to learn from data without explicit programming.",
+          "quiz": [
+            {
+              "question": "Which of the following is NOT a type of machine learning?",
+              "options": [
+                "Supervised learning",
+                "Unsupervised learning",
+                "Reinforcement learning",
+                "Declarative learning"
+              ],
+              "answer": "Declarative learning"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 1.3: AI vs. ML vs. Deep Learning",
+          "description": "Clarifying the differences and relationships between AI, ML, and Deep Learning. Understanding the hierarchy and overlap between these fields.",
+          "videoLecture": "AI, ML, and Deep Learning Explained",
+          "summary": "Deep learning is a subfield of ML, which is a subfield of AI, each building upon the previous.",
+          "quiz": [
+            {
+              "question": "Which of the following statements is true?",
+              "options": [
+                "AI is a subset of ML",
+                "ML is a subset of AI",
+                "Deep Learning is the same as AI",
+                "AI and ML are completely separate fields"
+              ],
+              "answer": "ML is a subset of AI"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 1.4: Applications of AI and ML",
+          "description": "Exploring real-world applications of AI and ML across various industries, including healthcare, finance, transportation, and entertainment.",
+          "videoLecture": "Real-World Applications of AI and ML",
+          "summary": "AI and ML are transforming industries by automating tasks, improving decision-making, and creating new products and services.",
+          "quiz": [
+            {
+              "question": "Which industry is NOT commonly using AI and ML?",
+              "options": [
+                "Healthcare",
+                "Finance",
+                "Transportation",
+                "Agriculture"
+              ],
+              "answer": "Agriculture"
+            }
+          ]
+        }
+      ],
+      "assignment": "Research and present a specific application of AI or ML in a chosen industry, highlighting its benefits and challenges."
+    },
+    {
+      "moduleName": "Module 2: History and Evolution of AI",
+      "description": "This module explores the historical development of AI, from its early conceptualization to the present day. Students will learn about key milestones, influential figures, and the evolution of AI paradigms.",
+      "submodules": [
+        {
+          "name": "Submodule 2.1: Early Days of AI (1950s-1960s)",
+          "description": "Discussing the Dartmouth Workshop, early AI programs (Logic Theorist, General Problem Solver), and the initial optimism and challenges.",
+          "videoLecture": "The Birth of AI",
+          "summary": "The Dartmouth Workshop marked the official beginning of AI research, with early programs showing initial promise.",
+          "quiz": [
+            {
+              "question": "What event is considered the official start of AI research?",
+              "options": [
+                "The invention of the computer",
+                "The Dartmouth Workshop",
+                "The creation of the first robot",
+                "The publication of 'Computing Machinery and Intelligence'"
+              ],
+              "answer": "The Dartmouth Workshop"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 2.2: AI Winters (1970s-1980s)",
+          "description": "Examining the periods of reduced funding and interest in AI due to unmet expectations and technological limitations.",
+          "videoLecture": "The AI Winters",
+          "summary": "AI Winters were periods of decreased funding and interest in AI due to unfulfilled promises and limited capabilities.",
+          "quiz": [
+            {
+              "question": "What caused the AI Winters?",
+              "options": [
+                "Lack of funding",
+                "Technological limitations",
+                "Unmet expectations",
+                "All of the above"
+              ],
+              "answer": "All of the above"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 2.3: Expert Systems and the Rise of ML (1980s-1990s)",
+          "description": "Exploring the development of expert systems and the resurgence of machine learning techniques, including neural networks.",
+          "videoLecture": "Expert Systems and the Rise of ML",
+          "summary": "Expert systems and the revival of neural networks marked a renewed interest in AI and ML.",
+          "quiz": [
+            {
+              "question": "What was a key development in AI during the 1980s?",
+              "options": [
+                "The invention of the internet",
+                "The development of expert systems",
+                "The creation of the first AI robot",
+                "The discovery of backpropagation"
+              ],
+              "answer": "The development of expert systems"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 2.4: Modern AI (2000s-Present)",
+          "description": "Discussing the advancements in deep learning, big data, and computing power that have fueled the current AI boom.",
+          "videoLecture": "The Modern AI Era",
+          "summary": "Advancements in deep learning, big data, and computing power have led to the current AI revolution.",
+          "quiz": [
+            {
+              "question": "What is a key factor driving the current AI boom?",
+              "options": [
+                "Increased government funding",
+                "Advancements in deep learning",
+                "The invention of the smartphone",
+                "The discovery of new algorithms"
+              ],
+              "answer": "Advancements in deep learning"
+            }
+          ]
+        }
+      ],
+      "assignment": "Create a timeline of key events in the history of AI, highlighting major breakthroughs and challenges."
+    },
+    {
+      "moduleName": "Module 3: Python for Machine Learning",
+      "description": "This module provides a hands-on introduction to Python programming, focusing on libraries and tools essential for machine learning. Students will learn to write Python code for data manipulation, analysis, and visualization.",
+      "submodules": [
+        {
+          "name": "Submodule 3.1: Introduction to Python",
+          "description": "Basic syntax, data types, variables, operators, and control flow in Python. Setting up a Python development environment.",
+          "videoLecture": "Python Basics for ML",
+          "summary": "Python is a versatile language with a simple syntax, making it ideal for machine learning.",
+          "quiz": [
+            {
+              "question": "Which of the following is NOT a valid Python data type?",
+              "options": [
+                "Integer",
+                "Float",
+                "String",
+                "Character"
+              ],
+              "answer": "Character"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 3.2: NumPy for Numerical Computing",
+          "description": "Introduction to NumPy arrays, array operations, linear algebra, and random number generation. Using NumPy for efficient numerical computations.",
+          "videoLecture": "NumPy Tutorial",
+          "summary": "NumPy provides powerful tools for numerical computing, essential for machine learning tasks.",
+          "quiz": [
+            {
+              "question": "What is the primary data structure in NumPy?",
+              "options": [
+                "List",
+                "Tuple",
+                "Array",
+                "Dictionary"
+              ],
+              "answer": "Array"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 3.3: Pandas for Data Analysis",
+          "description": "Introduction to Pandas DataFrames, data manipulation, data cleaning, and data analysis. Using Pandas for working with structured data.",
+          "videoLecture": "Pandas Tutorial",
+          "summary": "Pandas simplifies data analysis with its powerful DataFrame structure and data manipulation tools.",
+          "quiz": [
+            {
+              "question": "What is the primary data structure in Pandas?",
+              "options": [
+                "List",
+                "Series",
+                "Array",
+                "DataFrame"
+              ],
+              "answer": "DataFrame"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 3.4: Matplotlib and Seaborn for Data Visualization",
+          "description": "Creating basic plots, charts, and graphs using Matplotlib and Seaborn. Visualizing data to gain insights and communicate results.",
+          "videoLecture": "Data Visualization with Matplotlib and Seaborn",
+          "summary": "Matplotlib and Seaborn enable effective data visualization, helping to understand patterns and trends.",
+          "quiz": [
+            {
+              "question": "Which library is commonly used for creating static, interactive, and animated visualizations in Python?",
+              "options": [
+                "NumPy",
+                "Pandas",
+                "Matplotlib",
+                "Scikit-learn"
+              ],
+              "answer": "Matplotlib"
+            }
+          ]
+        }
+      ],
+      "assignment": "Write a Python script to load, clean, analyze, and visualize a given dataset using NumPy, Pandas, Matplotlib, and Seaborn."
+    },
+    {
+      "moduleName": "Module 4: Supervised Learning",
+      "description": "This module covers supervised learning algorithms, including linear regression, logistic regression, and support vector machines. Students will learn to train models, evaluate performance, and make predictions.",
+      "submodules": [
+        {
+          "name": "Submodule 4.1: Linear Regression",
+          "description": "Understanding linear regression, cost function, gradient descent, and model evaluation. Implementing linear regression in Python.",
+          "videoLecture": "Linear Regression Explained",
+          "summary": "Linear regression models the relationship between variables using a linear equation.",
+          "quiz": [
+            {
+              "question": "What is the goal of linear regression?",
+              "options": [
+                "To classify data",
+                "To predict a continuous value",
+                "To cluster data",
+                "To reduce dimensionality"
+              ],
+              "answer": "To predict a continuous value"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 4.2: Logistic Regression",
+          "description": "Understanding logistic regression, sigmoid function, cost function, gradient descent, and model evaluation. Implementing logistic regression in Python.",
+          "videoLecture": "Logistic Regression Explained",
+          "summary": "Logistic regression predicts the probability of a binary outcome using a sigmoid function.",
+          "quiz": [
+            {
+              "question": "What type of problem is logistic regression used for?",
+              "options": [
+                "Regression",
+                "Classification",
+                "Clustering",
+                "Dimensionality reduction"
+              ],
+              "answer": "Classification"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 4.3: Support Vector Machines (SVM)",
+          "description": "Understanding SVM, hyperplanes, margins, kernel functions, and model evaluation. Implementing SVM in Python.",
+          "videoLecture": "Support Vector Machines Explained",
+          "summary": "SVM finds the optimal hyperplane to separate data points into different classes.",
+          "quiz": [
+            {
+              "question": "What is the purpose of a kernel in SVM?",
+              "options": [
+                "To reduce dimensionality",
+                "To map data to a higher-dimensional space",
+                "To calculate the cost function",
+                "To prevent overfitting"
+              ],
+              "answer": "To map data to a higher-dimensional space"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 4.4: Model Evaluation and Selection",
+          "description": "Metrics for evaluating supervised learning models (accuracy, precision, recall, F1-score, ROC AUC). Techniques for model selection (cross-validation, grid search).",
+          "videoLecture": "Model Evaluation and Selection",
+          "summary": "Model evaluation and selection are crucial for choosing the best model for a given task.",
+          "quiz": [
+            {
+              "question": "Which metric is a harmonic mean of precision and recall?",
+              "options": [
+                "Accuracy",
+                "Precision",
+                "Recall",
+                "F1-score"
+              ],
+              "answer": "F1-score"
+            }
+          ]
+        }
+      ],
+      "assignment": "Train and evaluate a supervised learning model (linear regression, logistic regression, or SVM) on a given dataset, optimizing performance using cross-validation and grid search."
+    },
+    {
+      "moduleName": "Module 5: Unsupervised Learning",
+      "description": "This module covers unsupervised learning algorithms, including clustering and dimensionality reduction. Students will learn to discover patterns and structures in unlabeled data.",
+      "submodules": [
+        {
+          "name": "Submodule 5.1: Clustering Algorithms (K-Means)",
+          "description": "Understanding K-Means clustering, centroid initialization, distance metrics, and cluster evaluation. Implementing K-Means in Python.",
+          "videoLecture": "K-Means Clustering Explained",
+          "summary": "K-Means clustering groups data points into clusters based on their proximity to centroids.",
+          "quiz": [
+            {
+              "question": "What does 'K' represent in K-Means clustering?",
+              "options": [
+                "Number of features",
+                "Number of clusters",
+                "Number of iterations",
+                "Number of data points"
+              ],
+              "answer": "Number of clusters"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 5.2: Clustering Algorithms (Hierarchical Clustering)",
+          "description": "Understanding hierarchical clustering, linkage methods, dendrograms, and cluster evaluation. Implementing hierarchical clustering in Python.",
+          "videoLecture": "Hierarchical Clustering Explained",
+          "summary": "Hierarchical clustering builds a hierarchy of clusters by iteratively merging or splitting them.",
+          "quiz": [
+            {
+              "question": "What is a dendrogram used for in hierarchical clustering?",
+              "options": [
+                "To visualize the clustering hierarchy",
+                "To calculate the distance between data points",
+                "To initialize the centroids",
+                "To evaluate the cluster quality"
+              ],
+              "answer": "To visualize the clustering hierarchy"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 5.3: Dimensionality Reduction (PCA)",
+          "description": "Understanding Principal Component Analysis (PCA), variance explained, and feature selection. Implementing PCA in Python.",
+          "videoLecture": "PCA Explained",
+          "summary": "PCA reduces the dimensionality of data by identifying the principal components that capture the most variance.",
+          "quiz": [
+            {
+              "question": "What is the main goal of PCA?",
+              "options": [
+                "To increase the number of features",
+                "To reduce the dimensionality of the data",
+                "To improve the accuracy of the model",
+                "To visualize the data in 3D"
+              ],
+              "answer": "To reduce the dimensionality of the data"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 5.4: Dimensionality Reduction (t-SNE)",
+          "description": "Understanding t-distributed Stochastic Neighbor Embedding (t-SNE), and its applications for visualization. Implementing t-SNE in Python.",
+          "videoLecture": "t-SNE Explained",
+          "summary": "t-SNE is a dimensionality reduction technique particularly well suited for visualizing high-dimensional data.",
+          "quiz": [
+            {
+              "question": "What is t-SNE primarily used for?",
+              "options": [
+                "Feature selection",
+                "Clustering",
+                "Dimensionality reduction for visualization",
+                "Regression"
+              ],
+              "answer": "Dimensionality reduction for visualization"
+            }
+          ]
+        }
+      ],
+      "assignment": "Apply clustering and dimensionality reduction techniques to a given dataset, visualizing the results and interpreting the patterns discovered."
+    },
+    {
+      "moduleName": "Module 6: Deep Learning",
+      "description": "This module introduces deep learning concepts, including neural networks, activation functions, backpropagation, and convolutional neural networks. Students will learn to build and train deep learning models using TensorFlow or Keras.",
+      "submodules": [
+        {
+          "name": "Submodule 6.1: Introduction to Neural Networks",
+          "description": "Understanding the structure of neural networks, neurons, layers, weights, and biases. Exploring different types of neural networks.",
+          "videoLecture": "Neural Networks Explained",
+          "summary": "Neural networks are composed of interconnected neurons that learn to map inputs to outputs.",
+          "quiz": [
+            {
+              "question": "What is the basic building block of a neural network?",
+              "options": [
+                "Weight",
+                "Bias",
+                "Neuron",
+                "Layer"
+              ],
+              "answer": "Neuron"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 6.2: Activation Functions",
+          "description": "Exploring different activation functions (sigmoid, ReLU, tanh) and their properties. Understanding the role of activation functions in neural networks.",
+          "videoLecture": "Activation Functions Explained",
+          "summary": "Activation functions introduce non-linearity into neural networks, enabling them to learn complex patterns.",
+          "quiz": [
+            {
+              "question": "Which activation function is commonly used in the hidden layers of a neural network?",
+              "options": [
+                "Sigmoid",
+                "ReLU",
+                "Tanh",
+                "Linear"
+              ],
+              "answer": "ReLU"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 6.3: Backpropagation",
+          "description": "Understanding the backpropagation algorithm for training neural networks. Calculating gradients and updating weights.",
+          "videoLecture": "Backpropagation Explained",
+          "summary": "Backpropagation is used to update the weights of a neural network based on the error between predicted and actual outputs.",
+          "quiz": [
+            {
+              "question": "What is the purpose of backpropagation?",
+              "options": [
+                "To initialize the weights",
+                "To calculate the cost function",
+                "To update the weights",
+                "To predict the output"
+              ],
+              "answer": "To update the weights"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 6.4: Convolutional Neural Networks (CNNs)",
+          "description": "Understanding CNNs, convolutional layers, pooling layers, and fully connected layers. Applying CNNs to image classification tasks.",
+          "videoLecture": "CNNs Explained",
+          "summary": "CNNs are specialized neural networks for processing images, using convolutional layers to extract features.",
+          "quiz": [
+            {
+              "question": "What type of data are CNNs primarily used for?",
+              "options": [
+                "Text",
+                "Audio",
+                "Images",
+                "Time series"
+              ],
+              "answer": "Images"
+            }
+          ]
+        }
+      ],
+      "assignment": "Build and train a convolutional neural network (CNN) for image classification using TensorFlow or Keras."
+    },
+    {
+      "moduleName": "Module 7: Generative AI",
+      "description": "This module introduces generative AI models, including Variational Autoencoders (VAEs) and Generative Adversarial Networks (GANs). Students will learn to generate new data samples that resemble the training data.",
+      "submodules": [
+        {
+          "name": "Submodule 7.1: Introduction to Generative Models",
+          "description": "Understanding the concept of generative models and their applications. Differentiating between discriminative and generative models.",
+          "videoLecture": "Generative Models Explained",
+          "summary": "Generative models learn the underlying distribution of data and can generate new samples.",
+          "quiz": [
+            {
+              "question": "What is the primary goal of generative models?",
+              "options": [
+                "To classify data",
+                "To predict a continuous value",
+                "To generate new data samples",
+                "To reduce dimensionality"
+              ],
+              "answer": "To generate new data samples"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 7.2: Variational Autoencoders (VAEs)",
+          "description": "Understanding VAEs, encoder, decoder, latent space, and variational inference. Implementing VAEs in Python.",
+          "videoLecture": "VAEs Explained",
+          "summary": "VAEs learn a latent representation of data and can generate new samples by sampling from the latent space.",
+          "quiz": [
+            {
+              "question": "What is the purpose of the encoder in a VAE?",
+              "options": [
+                "To generate new data samples",
+                "To map data to a latent space",
+                "To reconstruct the input data",
+                "To classify the data"
+              ],
+              "answer": "To map data to a latent space"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 7.3: Generative Adversarial Networks (GANs)",
+          "description": "Understanding GANs, generator, discriminator, and adversarial training. Implementing GANs in Python.",
+          "videoLecture": "GANs Explained",
+          "summary": "GANs consist of a generator that creates new samples and a discriminator that distinguishes between real and generated samples.",
+          "quiz": [
+            {
+              "question": "What are the two main components of a GAN?",
+              "options": [
+                "Encoder and decoder",
+                "Generator and discriminator",
+                "Convolutional layer and pooling layer",
+                "Input layer and output layer"
+              ],
+              "answer": "Generator and discriminator"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 7.4: Applications of Generative AI",
+          "description": "Exploring applications of generative AI in image generation, text generation, music generation, and drug discovery.",
+          "videoLecture": "Generative AI Applications",
+          "summary": "Generative AI is used to create new content in various domains, including images, text, music, and drug design.",
+          "quiz": [
+            {
+              "question": "Which of the following is NOT a common application of generative AI?",
+              "options": [
+                "Image generation",
+                "Text generation",
+                "Music generation",
+                "Data analysis"
+              ],
+              "answer": "Data analysis"
+            }
+          ]
+        }
+      ],
+      "assignment": "Implement a generative model (VAE or GAN) to generate new data samples from a given dataset."
+    },
+    {
+      "moduleName": "Module 8: Current Research and Applications",
+      "description": "This module explores current research trends in AI and ML, including explainable AI, ethical AI, and emerging applications. Students will gain insights into the future of AI and its potential impact on society.",
+      "submodules": [
+        {
+          "name": "Submodule 8.1: Explainable AI (XAI)",
+          "description": "Understanding the importance of explainability in AI. Exploring techniques for making AI models more transparent and interpretable.",
+          "videoLecture": "Explainable AI Explained",
+          "summary": "Explainable AI aims to make AI models more transparent and understandable to humans.",
+          "quiz": [
+            {
+              "question": "What is the main goal of Explainable AI?",
+              "options": [
+                "To improve the accuracy of AI models",
+                "To make AI models more transparent",
+                "To reduce the complexity of AI models",
+                "To automate the training process"
+              ],
+              "answer": "To make AI models more transparent"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 8.2: Ethical AI",
+          "description": "Discussing ethical considerations in AI, including bias, fairness, privacy, and accountability. Developing strategies for building ethical AI systems.",
+          "videoLecture": "Ethical AI Explained",
+          "summary": "Ethical AI focuses on developing AI systems that are fair, unbiased, and respect human values.",
+          "quiz": [
+            {
+              "question": "What is a key ethical concern in AI?",
+              "options": [
+                "Bias",
+                "Fairness",
+                "Privacy",
+                "All of the above"
+              ],
+              "answer": "All of the above"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 8.3: AI in Healthcare",
+          "description": "Exploring applications of AI in healthcare, including diagnosis, treatment, drug discovery, and personalized medicine.",
+          "videoLecture": "AI in Healthcare",
+          "summary": "AI is transforming healthcare by improving diagnosis, treatment, and drug discovery.",
+          "quiz": [
+            {
+              "question": "Which of the following is NOT a common application of AI in healthcare?",
+              "options": [
+                "Diagnosis",
+                "Treatment",
+                "Drug discovery",
+                "Financial analysis"
+              ],
+              "answer": "Financial analysis"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 8.4: AI in Finance",
+          "description": "Exploring applications of AI in finance, including fraud detection, risk management, algorithmic trading, and customer service.",
+          "videoLecture": "AI in Finance",
+          "summary": "AI is used in finance for fraud detection, risk management, and algorithmic trading.",
+          "quiz": [
+            {
+              "question": "What is algorithmic trading?",
+              "options": [
+                "Trading based on human intuition",
+                "Trading based on predefined rules and algorithms",
+                "Trading based on market news",
+                "Trading based on insider information"
+              ],
+              "answer": "Trading based on predefined rules and algorithms"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 8.5: The Future of AI",
+          "description": "Discussing the future trends and potential impact of AI on society, including automation, job displacement, and the development of artificial general intelligence (AGI).",
+          "videoLecture": "The Future of AI",
+          "summary": "The future of AI holds both great promise and potential challenges for society.",
+          "quiz": [
+            {
+              "question": "What is AGI?",
+              "options": [
+                "Artificial General Intelligence",
+                "Automated General Interface",
+                "Advanced Graphical Interface",
+                "Augmented Global Internet"
+              ],
+              "answer": "Artificial General Intelligence"
+            }
+          ]
+        }
+      ],
+      "assignment": "Research and present a current research trend or emerging application of AI, discussing its potential benefits and challenges."
+    }
+  ],
+  "capstoneProject": {
+    "title": "AI-Powered Solution for a Real-World Problem",
+    "description": "Develop an AI-powered solution for a real-world problem of your choice, applying the concepts and techniques learned throughout the course. This project should demonstrate your ability to design, implement, and evaluate an AI system."
+  }
+}

@@ -2,9 +2,10 @@
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
-import { generateCoursePlan } from "./planner.js";
+import { generateCoursePlan } from "./planner_gemini.js";
 import { getCourseSchema } from "./schema.js";
-
+import fs from "fs";
+import path from "path";
 const app = express();
 const PORT = process.env.PORT || 3003;
 
@@ -27,6 +28,8 @@ app.post("/generate-plan", async (req, res) => {
 
   try {
     const coursePlan = await generateCoursePlan(courseTitle, courseOverview, targetAudience, numModules);
+    console.log("Final Course Plan (from /generate-plan route):");
+    console.dir(coursePlan, { depth: null, colors: true });
     const schema = getCourseSchema(numModules);
     const result = schema.safeParse(coursePlan);
 
@@ -38,6 +41,19 @@ app.post("/generate-plan", async (req, res) => {
         details: result.error.errors,
       });
     }
+    const sanitize = (str) => str.replace(/[^a-z0-9]/gi, "_");
+    const sanitizedTitle = sanitize(courseTitle);
+    const sanitizedAudience = sanitize(targetAudience);
+    const fileName = `${sanitizedTitle}_${sanitizedAudience}.json`;
+    const filePath = path.join("output", fileName);
+
+  // Ensure output folder exists
+    if (!fs.existsSync("output")) {
+    fs.mkdirSync("output");
+    }
+
+  // Save result to file
+  fs.writeFileSync(filePath, JSON.stringify(result.data, null, 2));
 
     res.json({ success: true, data: result.data });
   } catch (err) {
@@ -58,3 +74,4 @@ app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
   console.log(`API endpoint: POST http://localhost:${PORT}/generate-plan`);
 });
+

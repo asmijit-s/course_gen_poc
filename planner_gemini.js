@@ -1,11 +1,9 @@
-import dotenv from "dotenv";
+    import dotenv from "dotenv";
 dotenv.config();
 
-import Groq from "groq-sdk";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const groq = new Groq({
-  apiKey: process.env.GROQ_API_KEY,
-});
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 function buildSystemPrompt(courseTitle, courseOverview, targetAudience, numModules) {
   return `You are an expert course designer. Create a comprehensive course plan in PERFECT JSON format.
@@ -50,7 +48,7 @@ You MUST return a JSON object with this EXACT structure. Only structural change 
   }
 }
 SUBMODULE GUIDELINES:
-- Each module must include AS MANY submodules as needed to fully cover the module’s topic.
+- Each module must include AS MANY submodules as needed to fully cover the module's topic.
 - Avoid generating a fixed or default number of submodules like 2 unless it is truly sufficient.
 - Deep and granular topic decomposition is preferred. Think: 3 to 6+ submodules per module if needed.
 - Each submodule must address a **unique** and **distinct concept**, not duplicates or overlapping ideas.
@@ -87,44 +85,44 @@ export async function generateCoursePlan(courseTitle, courseOverview, targetAudi
     try {
       console.log(`Generating course plan for: ${courseTitle} (Attempt ${attempt}/${maxRetries})`);
       
-      const response = await groq.chat.completions.create({
-        model: "qwen-qwq-32b",
-        response_format: { type: "json_object" },
-        messages: [
-          {
-            role: "system",
-            content: systemPrompt,
-          },
-          {
-            role: "user",
-            content: `Generate a complete course plan with proper JSON structure. 
-            
-            CRITICAL: Each submodule MUST have these 5 fields with proper labels:
-            - "name": "..."
-            - "description": "..."
-            - "videoLecture": "..."
-            - "summary": "..." (THIS FIELD IS OFTEN MISSING THE LABEL!)
-            - "quiz": [...]
-            
-            Course Details:
-            - Title: ${courseTitle}
-            - Overview: ${courseOverview}
-            - Target Audience: ${targetAudience}
-            - Number of Modules: ${numModules}
-            Ensure the difficulty of topics is in line with bloom's taxonomy after analysing ${targetAudience}.
-            The initial difficulty will be decided by ${targetAudience} and described in ${courseOverview} and go to advanced difficulty.
-            Structure the modules and their orders as per your reasoning.
-            Return ONLY valid, complete JSON with all field labels properly quoted.`
-          }
-        ],
-        temperature: 0.2,  // Even lower temperature
-        top_p: 0.9,
-        frequency_penalty: 0.0,
-        presence_penalty: 0.0
+      // Get the generative model
+      const model = genAI.getGenerativeModel({ 
+        model: "gemini-2.0-flash-exp",
+        generationConfig: {
+          temperature: 0.2,
+          topP: 0.9,
+          topK: 40,
+          //maxOutputTokens: 8192,
+          responseMimeType: "application/json",
+        },
       });
 
-      const raw = response.choices[0]?.message?.content;
-      console.log(` Raw response preview (Attempt ${attempt}):`, raw?.substring(0, 200) + "...");
+      const prompt = `${systemPrompt}
+
+Generate a complete course plan with proper JSON structure. 
+
+CRITICAL: Each submodule MUST have these 5 fields with proper labels:
+- "name": "..."
+- "description": "..."
+- "videoLecture": "..."
+- "summary": "..." (THIS FIELD IS OFTEN MISSING THE LABEL!)
+- "quiz": [...]
+
+Course Details:
+- Title: ${courseTitle}
+- Overview: ${courseOverview}
+- Target Audience: ${targetAudience}
+- Number of Modules: ${numModules}
+Ensure the difficulty of topics is in line with bloom's taxonomy after analysing ${targetAudience}.
+The initial difficulty will be decided by ${targetAudience} and described in ${courseOverview} and go to advanced difficulty.
+Structure the modules and their orders as per your reasoning.
+Return ONLY valid, complete JSON with all field labels properly quoted.`;
+
+      const result = await model.generateContent(prompt);
+      const response = await result.response;
+      const raw = response.text();
+
+      console.log(`Raw response preview (Attempt ${attempt}):`, raw?.substring(0, 200) + "...");
 
       if (!raw) {
         throw new Error("Empty response from API");
@@ -308,5 +306,4 @@ function validateCourseStructure(parsed, numModules) {
   }
   
   console.log("Course structure validation passed");
-
 }

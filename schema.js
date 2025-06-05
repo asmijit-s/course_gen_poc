@@ -18,7 +18,7 @@ const submoduleSchema = z.object({
 const moduleSchema = z.object({
   moduleName: z.string().min(1),
   description: z.string().min(1),
-  submodules: z.array(submoduleSchema).min(1).max(3),
+  submodules: z.array(submoduleSchema).min(1),
   assignment: z.string().min(1),
 });
 

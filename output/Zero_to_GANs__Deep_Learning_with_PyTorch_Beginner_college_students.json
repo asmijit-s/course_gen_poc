@@ -1,0 +1,413 @@
+{
+  "courseTitle": "Zero to GANs: Deep Learning with PyTorch",
+  "overview": "This course, Zero to GANs: Deep Learning with PyTorch, is designed to take learners from foundational concepts in deep learning to advanced generative models, particularly Generative Adversarial Networks (GANs). It provides a hands-on, project-driven approach using the PyTorch framework. The course covers neural network fundamentals, model training, optimization, computer vision tasks, and culminates in building and training GANs from scratch.\nThe course emphasizes practical implementation through labs, real-world datasets, and assignments, making it suitable for beginners in academia or industry with basic Python knowledge. By the end, learners will be capable of designing and deploying deep learning models and experimenting with GAN architectures.\n",
+  "audience": "Beginner college students",
+  "modules": [
+    {
+      "moduleName": "Module 1: Introduction to Deep Learning and PyTorch",
+      "description": "This module introduces the fundamental concepts of deep learning and the PyTorch framework. Students will learn about neural networks, tensors, and basic PyTorch operations, setting the stage for building more complex models.",
+      "submodules": [
+        {
+          "name": "Submodule 1.1: What is Deep Learning?",
+          "description": "An overview of deep learning, its applications, and its relationship to machine learning and artificial intelligence.",
+          "videoLecture": "Introduction to Deep Learning",
+          "summary": "Deep learning uses artificial neural networks with multiple layers to extract features.",
+          "quiz": [
+            {
+              "question": "Which of the following is NOT a typical application of deep learning?",
+              "options": [
+                "Image recognition",
+                "Natural language processing",
+                "Predictive maintenance",
+                "Spreadsheet calculations"
+              ],
+              "answer": "Spreadsheet calculations"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 1.2: Introduction to PyTorch",
+          "description": "Introduction to PyTorch, its advantages, and how it compares to other deep learning frameworks like TensorFlow.",
+          "videoLecture": "PyTorch vs TensorFlow",
+          "summary": "PyTorch is a flexible and dynamic deep learning framework known for its ease of use.",
+          "quiz": [
+            {
+              "question": "Which of the following is a key feature of PyTorch?",
+              "options": [
+                "Static computation graphs",
+                "Dynamic computation graphs",
+                "Limited hardware support",
+                "Proprietary license"
+              ],
+              "answer": "Dynamic computation graphs"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 1.3: Tensors and Basic Operations",
+          "description": "Understanding tensors, the fundamental data structure in PyTorch, and performing basic operations on them.",
+          "videoLecture": "PyTorch Tensors Tutorial",
+          "summary": "Tensors are multi-dimensional arrays that are the core data structure in PyTorch.",
+          "quiz": [
+            {
+              "question": "What is the equivalent of a NumPy array in PyTorch?",
+              "options": [
+                "List",
+                "Dictionary",
+                "Tensor",
+                "DataFrame"
+              ],
+              "answer": "Tensor"
+            }
+          ]
+        }
+      ],
+      "assignment": "Create a PyTorch tensor and perform basic arithmetic operations on it, such as addition, subtraction, and multiplication."
+    },
+    {
+      "moduleName": "Module 2: Building Neural Networks with PyTorch",
+      "description": "This module covers the construction of neural networks using PyTorch. Students will learn about layers, activation functions, and how to define a neural network architecture.",
+      "submodules": [
+        {
+          "name": "Submodule 2.1: Layers and Activation Functions",
+          "description": "Exploring different types of layers (linear, convolutional, recurrent) and activation functions (ReLU, sigmoid, tanh).",
+          "videoLecture": "Neural Network Layers Explained",
+          "summary": "Layers transform data, and activation functions introduce non-linearity in neural networks.",
+          "quiz": [
+            {
+              "question": "Which activation function is commonly used in the hidden layers of a neural network?",
+              "options": [
+                "Sigmoid",
+                "Tanh",
+                "ReLU",
+                "Step function"
+              ],
+              "answer": "ReLU"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 2.2: Defining a Neural Network Architecture",
+          "description": "Learning how to define a neural network architecture using the `nn.Module` class in PyTorch.",
+          "videoLecture": "Defining Neural Networks in PyTorch",
+          "summary": "`nn.Module` is the base class for all neural network modules in PyTorch.",
+          "quiz": [
+            {
+              "question": "Which class is used to define a custom neural network in PyTorch?",
+              "options": [
+                "nn.Sequential",
+                "nn.Module",
+                "nn.Linear",
+                "nn.Conv2d"
+              ],
+              "answer": "nn.Module"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 2.3: Forward Pass and Backpropagation",
+          "description": "Understanding the forward pass and backpropagation algorithms for training neural networks.",
+          "videoLecture": "Forward and Backward Propagation",
+          "summary": "Forward pass computes the output, and backpropagation calculates gradients for weight updates.",
+          "quiz": [
+            {
+              "question": "What is the purpose of backpropagation?",
+              "options": [
+                "To compute the output of the network",
+                "To calculate gradients of the loss function",
+                "To initialize the network weights",
+                "To visualize the network architecture"
+              ],
+              "answer": "To calculate gradients of the loss function"
+            }
+          ]
+        }
+      ],
+      "assignment": "Implement a simple feedforward neural network in PyTorch to classify handwritten digits from the MNIST dataset."
+    },
+    {
+      "moduleName": "Module 3: Training and Optimization",
+      "description": "This module focuses on training neural networks, including loss functions, optimizers, and techniques for improving model performance.",
+      "submodules": [
+        {
+          "name": "Submodule 3.1: Loss Functions",
+          "description": "Exploring different loss functions for various tasks, such as classification and regression.",
+          "videoLecture": "Loss Functions Explained",
+          "summary": "Loss functions quantify the difference between predicted and actual values.",
+          "quiz": [
+            {
+              "question": "Which loss function is commonly used for multi-class classification problems?",
+              "options": [
+                "Mean Squared Error",
+                "Binary Cross-Entropy",
+                "Categorical Cross-Entropy",
+                "Hinge Loss"
+              ],
+              "answer": "Categorical Cross-Entropy"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 3.2: Optimizers",
+          "description": "Understanding different optimization algorithms, such as SGD, Adam, and RMSprop.",
+          "videoLecture": "Optimization Algorithms",
+          "summary": "Optimizers update model parameters to minimize the loss function.",
+          "quiz": [
+            {
+              "question": "Which optimizer is known for its adaptive learning rate?",
+              "options": [
+                "SGD",
+                "Adam",
+                "RMSprop",
+                "Momentum"
+              ],
+              "answer": "Adam"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 3.3: Regularization Techniques",
+          "description": "Learning about regularization techniques, such as L1, L2 regularization, and dropout, to prevent overfitting.",
+          "videoLecture": "Regularization Techniques in Deep Learning",
+          "summary": "Regularization prevents overfitting by adding a penalty to the loss function or randomly dropping neurons.",
+          "quiz": [
+            {
+              "question": "What is the purpose of dropout regularization?",
+              "options": [
+                "To increase the training speed",
+                "To prevent overfitting",
+                "To improve the model's interpretability",
+                "To reduce the number of parameters"
+              ],
+              "answer": "To prevent overfitting"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 3.4: Batch Normalization",
+          "description": "Understanding and implementing batch normalization to improve training stability and speed.",
+          "videoLecture": "Batch Normalization Explained",
+          "summary": "Batch normalization normalizes the activations of each layer to improve training.",
+          "quiz": [
+            {
+              "question": "What does Batch Normalization do?",
+              "options": [
+                "Normalizes the input data",
+                "Normalizes the activations of each layer",
+                "Normalizes the output data",
+                "Normalizes the weights of the network"
+              ],
+              "answer": "Normalizes the activations of each layer"
+            }
+          ]
+        }
+      ],
+      "assignment": "Train a neural network on the CIFAR-10 dataset and experiment with different optimizers and regularization techniques to improve its performance."
+    },
+    {
+      "moduleName": "Module 4: Computer Vision with PyTorch",
+      "description": "This module explores computer vision tasks using PyTorch, including image classification, object detection, and image segmentation.",
+      "submodules": [
+        {
+          "name": "Submodule 4.1: Convolutional Neural Networks (CNNs)",
+          "description": "Understanding the architecture and principles of convolutional neural networks.",
+          "videoLecture": "Introduction to CNNs",
+          "summary": "CNNs use convolutional layers to extract spatial features from images.",
+          "quiz": [
+            {
+              "question": "What type of layer is the core building block of CNNs?",
+              "options": [
+                "Linear layer",
+                "Recurrent layer",
+                "Convolutional layer",
+                "Pooling layer"
+              ],
+              "answer": "Convolutional layer"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 4.2: Image Classification",
+          "description": "Building and training CNNs for image classification tasks using pre-trained models.",
+          "videoLecture": "Image Classification with PyTorch",
+          "summary": "Image classification involves assigning a label to an image based on its content.",
+          "quiz": [
+            {
+              "question": "What is transfer learning?",
+              "options": [
+                "Training a model from scratch",
+                "Using a pre-trained model for a new task",
+                "Fine-tuning the learning rate",
+                "Visualizing the network architecture"
+              ],
+              "answer": "Using a pre-trained model for a new task"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 4.3: Object Detection",
+          "description": "Introduction to object detection and techniques like bounding box regression.",
+          "videoLecture": "Object Detection Fundamentals",
+          "summary": "Object detection involves identifying and locating objects within an image.",
+          "quiz": [
+            {
+              "question": "What is a bounding box in object detection?",
+              "options": [
+                "A box that encloses an object in an image",
+                "A box that represents the background",
+                "A box that highlights the most important features",
+                "A box that shows the confidence score"
+              ],
+              "answer": "A box that encloses an object in an image"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 4.4: Image Segmentation",
+          "description": "Understanding image segmentation and its applications in computer vision.",
+          "videoLecture": "Introduction to Image Segmentation",
+          "summary": "Image segmentation involves partitioning an image into multiple segments or regions.",
+          "quiz": [
+            {
+              "question": "What is the goal of semantic segmentation?",
+              "options": [
+                "To detect objects in an image",
+                "To classify each pixel in an image",
+                "To generate new images",
+                "To compress images"
+              ],
+              "answer": "To classify each pixel in an image"
+            }
+          ]
+        }
+      ],
+      "assignment": "Implement a CNN for image classification on a custom dataset or fine-tune a pre-trained model for object detection."
+    },
+    {
+      "moduleName": "Module 5: Introduction to Generative Adversarial Networks (GANs)",
+      "description": "This module introduces Generative Adversarial Networks (GANs), their architecture, and their applications in generating realistic data.",
+      "submodules": [
+        {
+          "name": "Submodule 5.1: GAN Architecture",
+          "description": "Understanding the generator and discriminator components of a GAN.",
+          "videoLecture": "GAN Architecture Explained",
+          "summary": "GANs consist of a generator that creates data and a discriminator that distinguishes real from fake data.",
+          "quiz": [
+            {
+              "question": "What are the two main components of a GAN?",
+              "options": [
+                "Encoder and Decoder",
+                "Generator and Discriminator",
+                "Classifier and Regressor",
+                "Actor and Critic"
+              ],
+              "answer": "Generator and Discriminator"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 5.2: Training GANs",
+          "description": "Learning how to train GANs and the challenges involved in GAN training.",
+          "videoLecture": "Training GANs: Tips and Tricks",
+          "summary": "Training GANs can be challenging due to issues like mode collapse and vanishing gradients.",
+          "quiz": [
+            {
+              "question": "What is mode collapse in GAN training?",
+              "options": [
+                "The generator produces only a limited variety of outputs",
+                "The discriminator always outputs the same value",
+                "The training process converges too quickly",
+                "The learning rate is too high"
+              ],
+              "answer": "The generator produces only a limited variety of outputs"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 5.3: Types of GANs",
+          "description": "Exploring different types of GANs, such as DCGANs and Conditional GANs.",
+          "videoLecture": "Different Types of GANs",
+          "summary": "DCGANs use convolutional layers, and Conditional GANs generate data based on input conditions.",
+          "quiz": [
+            {
+              "question": "What is a DCGAN?",
+              "options": [
+                "A GAN that uses recurrent layers",
+                "A GAN that uses convolutional layers",
+                "A GAN that uses fully connected layers",
+                "A GAN that uses attention mechanisms"
+              ],
+              "answer": "A GAN that uses convolutional layers"
+            }
+          ]
+        }
+      ],
+      "assignment": "Implement a simple GAN to generate handwritten digits from the MNIST dataset."
+    },
+    {
+      "moduleName": "Module 6: Advanced GAN Architectures and Applications",
+      "description": "This module delves into advanced GAN architectures and their applications in various domains, such as image synthesis and style transfer.",
+      "submodules": [
+        {
+          "name": "Submodule 6.1: StyleGAN",
+          "description": "Understanding the architecture and principles of StyleGAN for high-resolution image synthesis.",
+          "videoLecture": "StyleGAN Explained",
+          "summary": "StyleGAN allows for fine-grained control over the style of generated images.",
+          "quiz": [
+            {
+              "question": "What is a key feature of StyleGAN?",
+              "options": [
+                "It uses recurrent layers",
+                "It allows for fine-grained control over image style",
+                "It is only used for image classification",
+                "It is a type of autoencoder"
+              ],
+              "answer": "It allows for fine-grained control over image style"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 6.2: CycleGAN",
+          "description": "Learning about CycleGAN for unpaired image-to-image translation.",
+          "videoLecture": "CycleGAN for Image Translation",
+          "summary": "CycleGAN enables image-to-image translation without paired training data.",
+          "quiz": [
+            {
+              "question": "What is the main advantage of CycleGAN?",
+              "options": [
+                "It requires paired training data",
+                "It does not require paired training data",
+                "It is only used for image classification",
+                "It is a type of autoencoder"
+              ],
+              "answer": "It does not require paired training data"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 6.3: GAN Applications",
+          "description": "Exploring various applications of GANs, such as image inpainting, super-resolution, and data augmentation.",
+          "videoLecture": "GAN Applications in Practice",
+          "summary": "GANs have numerous applications in image generation, manipulation, and data augmentation.",
+          "quiz": [
+            {
+              "question": "Which of the following is a common application of GANs?",
+              "options": [
+                "Image compression",
+                "Image inpainting",
+                "Text summarization",
+                "Speech recognition"
+              ],
+              "answer": "Image inpainting"
+            }
+          ]
+        }
+      ],
+      "assignment": "Implement an advanced GAN architecture, such as StyleGAN or CycleGAN, for a specific application, such as generating high-resolution images or performing image-to-image translation."
+    }
+  ],
+  "capstoneProject": {
+    "title": "Generative Art with GANs",
+    "description": "Develop a GAN-based system to generate unique and artistic images. Students can choose to implement StyleGAN or CycleGAN to create novel art pieces, demonstrating their understanding of GAN architectures and training techniques."
+  }
+}

@@ -1,0 +1,449 @@
+{
+  "courseTitle": "Foundations of Machine Learning for Artists and Designers",
+  "overview": "The course should explore how creative professionals can use ML tools to enhance digital art, generate content, and build interactive experiences.\nCover ML concepts like classification, clustering, style transfer, and GANs in an intuitive, visual way — no coding required.\nInclude hands-on practice using RunwayML, Teachable Machine, and DALL·E.\nExplain how ML models are trained using data, how prompts guide outputs, and how bias affects results.\nDesign assignments where learners apply models to personal artwork or design portfolios.\nEach module should have at least one tool demo, a quiz, and a creative task.\nConclude with a capstone project using generative or interactive AI art.\n",
+  "audience": "Non-technical creatives, artists, and design students.",
+  "modules": [
+    {
+      "moduleName": "Module 1: Introduction to Machine Learning for Creatives",
+      "description": "This module introduces fundamental ML concepts and their relevance to creative fields. Students will understand the basic terminology and potential applications of ML in art and design.",
+      "submodules": [
+        {
+          "name": "Submodule 1.1: What is Machine Learning?",
+          "description": "Defining machine learning, its types (supervised, unsupervised, reinforcement), and its difference from traditional programming.",
+          "videoLecture": "Introduction to Machine Learning: A Creative Perspective",
+          "summary": "Machine learning enables computers to learn from data without explicit programming.",
+          "quiz": [
+            {
+              "question": "Which of the following is NOT a type of machine learning?",
+              "options": [
+                "Supervised Learning",
+                "Unsupervised Learning",
+                "Reinforcement Learning",
+                "Algorithmic Learning"
+              ],
+              "answer": "Algorithmic Learning"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 1.2: Applications of ML in Art and Design",
+          "description": "Exploring diverse applications like generative art, style transfer, interactive installations, and personalized design.",
+          "videoLecture": "Creative Applications of Machine Learning",
+          "summary": "ML empowers artists and designers with new tools for creation and interaction.",
+          "quiz": [
+            {
+              "question": "Which of these is an example of ML in art?",
+              "options": [
+                "Creating a website",
+                "Generative Art",
+                "Traditional Painting",
+                "Sculpting with clay"
+              ],
+              "answer": "Generative Art"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 1.3: Introduction to Datasets",
+          "description": "Understanding the role of data in ML, different types of datasets, and data collection methods relevant to creative projects.",
+          "videoLecture": "Understanding Datasets for Creative ML",
+          "summary": "Datasets are crucial for training ML models and influencing their outputs.",
+          "quiz": [
+            {
+              "question": "What is the primary role of a dataset in machine learning?",
+              "options": [
+                "To confuse the algorithm",
+                "To train the model",
+                "To create visual art",
+                "To store user information"
+              ],
+              "answer": "To train the model"
+            }
+          ]
+        }
+      ],
+      "assignment": "Brainstorm three potential ML applications for your own artistic or design practice."
+    },
+    {
+      "moduleName": "Module 2: Introduction to RunwayML",
+      "description": "This module provides a hands-on introduction to RunwayML, a no-code platform for using and training machine learning models. Students will learn how to navigate the interface and run pre-trained models.",
+      "submodules": [
+        {
+          "name": "Submodule 2.1: Navigating the RunwayML Interface",
+          "description": "A guided tour of the RunwayML interface, explaining key features and functionalities.",
+          "videoLecture": "RunwayML Interface Tutorial",
+          "summary": "RunwayML offers a user-friendly interface for exploring and using ML models.",
+          "quiz": [
+            {
+              "question": "What is the primary purpose of RunwayML?",
+              "options": [
+                "Coding complex algorithms",
+                "Creating 3D models",
+                "Using ML models without code",
+                "Designing websites"
+              ],
+              "answer": "Using ML models without code"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 2.2: Running Pre-trained Models in RunwayML",
+          "description": "Step-by-step instructions on how to run pre-trained models for image generation, style transfer, and object detection.",
+          "videoLecture": "Running Pre-trained Models in RunwayML",
+          "summary": "RunwayML allows easy access to and use of various pre-trained ML models.",
+          "quiz": [
+            {
+              "question": "Which of the following tasks can be performed using pre-trained models in RunwayML?",
+              "options": [
+                "Building a house",
+                "Cooking a meal",
+                "Image generation",
+                "Writing a novel"
+              ],
+              "answer": "Image generation"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 2.3: Exploring Different Model Categories",
+          "description": "Overview of different model categories available in RunwayML, such as image-to-image translation, text generation, and pose estimation.",
+          "videoLecture": "Exploring Model Categories in RunwayML",
+          "summary": "RunwayML offers a diverse range of model categories for various creative applications.",
+          "quiz": [
+            {
+              "question": "Which of these is a model category available in RunwayML?",
+              "options": [
+                "Time travel",
+                "Image-to-image translation",
+                "Teleportation",
+                "Invisibility"
+              ],
+              "answer": "Image-to-image translation"
+            }
+          ]
+        }
+      ],
+      "assignment": "Experiment with three different pre-trained models in RunwayML and document your findings."
+    },
+    {
+      "moduleName": "Module 3: Teachable Machine: Training Your Own Models",
+      "description": "This module introduces Teachable Machine, a tool for training custom image, audio, and pose-based ML models without coding. Students will learn how to collect data, train models, and export them for use in other applications.",
+      "submodules": [
+        {
+          "name": "Submodule 3.1: Introduction to Teachable Machine",
+          "description": "Overview of Teachable Machine's features and capabilities for creating custom ML models.",
+          "videoLecture": "Introduction to Teachable Machine",
+          "summary": "Teachable Machine simplifies the process of training custom ML models.",
+          "quiz": [
+            {
+              "question": "What type of data can Teachable Machine use to train models?",
+              "options": [
+                "Only text",
+                "Only images",
+                "Images, audio, and poses",
+                "Only video"
+              ],
+              "answer": "Images, audio, and poses"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 3.2: Collecting and Preparing Training Data",
+          "description": "Best practices for collecting and preparing data for training effective ML models in Teachable Machine.",
+          "videoLecture": "Collecting Training Data for Teachable Machine",
+          "summary": "High-quality training data is essential for building accurate ML models.",
+          "quiz": [
+            {
+              "question": "Why is it important to have diverse training data?",
+              "options": [
+                "To confuse the model",
+                "To make the model more accurate",
+                "To make the model faster",
+                "To make the model smaller"
+              ],
+              "answer": "To make the model more accurate"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 3.3: Training and Evaluating Models",
+          "description": "Step-by-step guide on training models in Teachable Machine and evaluating their performance.",
+          "videoLecture": "Training and Evaluating Models in Teachable Machine",
+          "summary": "Teachable Machine provides tools for training and evaluating model accuracy.",
+          "quiz": [
+            {
+              "question": "What does 'training' a model mean?",
+              "options": [
+                "Teaching it to sing",
+                "Showing it examples to learn from",
+                "Giving it a name",
+                "Deleting its memory"
+              ],
+              "answer": "Showing it examples to learn from"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 3.4: Exporting and Using Trained Models",
+          "description": "Instructions on how to export trained models from Teachable Machine and use them in web applications or other creative projects.",
+          "videoLecture": "Exporting and Using Models from Teachable Machine",
+          "summary": "Trained models can be exported and integrated into various creative projects.",
+          "quiz": [
+            {
+              "question": "What can you do with an exported model from Teachable Machine?",
+              "options": [
+                "Eat it",
+                "Use it in a web application",
+                "Throw it away",
+                "Frame it"
+              ],
+              "answer": "Use it in a web application"
+            }
+          ]
+        }
+      ],
+      "assignment": "Train a custom image classification model using Teachable Machine to recognize different types of artwork or design styles."
+    },
+    {
+      "moduleName": "Module 4: Generative AI with DALL·E and Prompt Engineering",
+      "description": "This module explores the use of DALL·E and other text-to-image models for generative art. Students will learn how to write effective prompts to guide the AI and generate desired outputs.",
+      "submodules": [
+        {
+          "name": "Submodule 4.1: Introduction to DALL·E and Text-to-Image Models",
+          "description": "Overview of DALL·E and other text-to-image models, explaining their capabilities and limitations.",
+          "videoLecture": "Introduction to DALL·E and Text-to-Image Models",
+          "summary": "DALL·E generates images from textual descriptions, opening new creative possibilities.",
+          "quiz": [
+            {
+              "question": "What is the primary input for DALL·E?",
+              "options": [
+                "Images",
+                "Audio",
+                "Text",
+                "Video"
+              ],
+              "answer": "Text"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 4.2: The Art of Prompt Engineering",
+          "description": "Techniques for writing effective prompts to guide text-to-image models and achieve desired artistic results.",
+          "videoLecture": "Prompt Engineering for Generative Art",
+          "summary": "Crafting precise prompts is crucial for controlling the output of generative AI models.",
+          "quiz": [
+            {
+              "question": "What is 'prompt engineering'?",
+              "options": [
+                "Designing physical prompts",
+                "Writing effective text prompts for AI",
+                "Building robots",
+                "Creating websites"
+              ],
+              "answer": "Writing effective text prompts for AI"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 4.3: Exploring Different Prompting Strategies",
+          "description": "Experimenting with different prompting strategies, such as using keywords, artistic styles, and specific details to influence the generated images.",
+          "videoLecture": "Prompting Strategies for DALL·E",
+          "summary": "Different prompting strategies can lead to diverse and creative outputs.",
+          "quiz": [
+            {
+              "question": "Which of the following can be used in a prompt to influence the generated image?",
+              "options": [
+                "Only nouns",
+                "Only verbs",
+                "Artistic styles",
+                "Only adjectives"
+              ],
+              "answer": "Artistic styles"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 4.4: Iterating and Refining Generated Images",
+          "description": "Techniques for iterating on generated images, refining prompts, and using post-processing tools to achieve desired results.",
+          "videoLecture": "Iterating and Refining Images with DALL·E",
+          "summary": "Iterative refinement is key to achieving desired results with generative AI.",
+          "quiz": [
+            {
+              "question": "What is the purpose of iterating on generated images?",
+              "options": [
+                "To make them worse",
+                "To achieve desired results",
+                "To waste time",
+                "To confuse the AI"
+              ],
+              "answer": "To achieve desired results"
+            }
+          ]
+        }
+      ],
+      "assignment": "Create a series of images using DALL·E, experimenting with different prompts and artistic styles."
+    },
+    {
+      "moduleName": "Module 5: Understanding Bias and Ethical Considerations",
+      "description": "This module addresses the ethical implications of using ML in creative contexts, focusing on bias in datasets and models, and responsible AI practices.",
+      "submodules": [
+        {
+          "name": "Submodule 5.1: Identifying Bias in Datasets",
+          "description": "Understanding how bias can creep into datasets and affect the outputs of ML models.",
+          "videoLecture": "Identifying Bias in Datasets",
+          "summary": "Biased datasets can lead to unfair or discriminatory outcomes.",
+          "quiz": [
+            {
+              "question": "What is a potential consequence of using a biased dataset?",
+              "options": [
+                "Fair and accurate results",
+                "Unfair or discriminatory outcomes",
+                "Faster training times",
+                "More creative outputs"
+              ],
+              "answer": "Unfair or discriminatory outcomes"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 5.2: Mitigating Bias in ML Models",
+          "description": "Techniques for mitigating bias in ML models, such as data augmentation, re-weighting, and fairness-aware algorithms.",
+          "videoLecture": "Mitigating Bias in ML Models",
+          "summary": "Various techniques can be used to reduce bias in ML models.",
+          "quiz": [
+            {
+              "question": "Which of the following is a technique for mitigating bias in ML models?",
+              "options": [
+                "Ignoring the problem",
+                "Data augmentation",
+                "Using smaller datasets",
+                "Deleting all data"
+              ],
+              "answer": "Data augmentation"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 5.3: Ethical Considerations for Creative AI",
+          "description": "Exploring ethical considerations related to the use of AI in creative contexts, such as copyright, ownership, and the impact on human artists.",
+          "videoLecture": "Ethical Considerations for Creative AI",
+          "summary": "Ethical considerations are crucial when using AI in creative endeavors.",
+          "quiz": [
+            {
+              "question": "What is an ethical consideration when using AI in creative contexts?",
+              "options": [
+                "Copyright",
+                "Making money",
+                "Having fun",
+                "Becoming famous"
+              ],
+              "answer": "Copyright"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 5.4: Responsible AI Practices",
+          "description": "Promoting responsible AI practices, such as transparency, accountability, and fairness, in creative projects.",
+          "videoLecture": "Responsible AI Practices",
+          "summary": "Transparency, accountability, and fairness are key to responsible AI practices.",
+          "quiz": [
+            {
+              "question": "What is a key element of responsible AI practices?",
+              "options": [
+                "Secrecy",
+                "Transparency",
+                "Ignoring feedback",
+                "Avoiding collaboration"
+              ],
+              "answer": "Transparency"
+            }
+          ]
+        }
+      ],
+      "assignment": "Write a short essay discussing the ethical implications of using AI to generate art, considering issues such as copyright and bias."
+    },
+    {
+      "moduleName": "Module 6: Advanced ML Techniques for Creative Applications",
+      "description": "This module delves into more advanced ML techniques, such as style transfer and GANs, and explores their potential for creating innovative art and design.",
+      "submodules": [
+        {
+          "name": "Submodule 6.1: Deep Dive into Style Transfer",
+          "description": "Exploring the concept of style transfer, its underlying algorithms, and its applications in art and design.",
+          "videoLecture": "Deep Dive into Style Transfer",
+          "summary": "Style transfer allows transferring the style of one image to another.",
+          "quiz": [
+            {
+              "question": "What does style transfer allow you to do?",
+              "options": [
+                "Transfer money",
+                "Transfer the style of one image to another",
+                "Teleport",
+                "Time travel"
+              ],
+              "answer": "Transfer the style of one image to another"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 6.2: Generative Adversarial Networks (GANs) for Art",
+          "description": "Introduction to GANs, their architecture, and their use in generating realistic and creative images.",
+          "videoLecture": "Generative Adversarial Networks (GANs) for Art",
+          "summary": "GANs can generate realistic and creative images through adversarial training.",
+          "quiz": [
+            {
+              "question": "What are GANs used for?",
+              "options": [
+                "Generating images",
+                "Cooking food",
+                "Building houses",
+                "Flying airplanes"
+              ],
+              "answer": "Generating images"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 6.3: Creating Interactive AI Art Installations",
+          "description": "Exploring the use of ML models to create interactive art installations that respond to user input and generate dynamic visual experiences.",
+          "videoLecture": "Creating Interactive AI Art Installations",
+          "summary": "ML models can be used to create interactive and dynamic art installations.",
+          "quiz": [
+            {
+              "question": "What can ML models be used for in interactive art installations?",
+              "options": [
+                "To make them static",
+                "To make them unresponsive",
+                "To generate dynamic visual experiences",
+                "To break them"
+              ],
+              "answer": "To generate dynamic visual experiences"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 6.4: Future Trends in AI and Creativity",
+          "description": "Discussing emerging trends in AI and their potential impact on the future of art and design.",
+          "videoLecture": "Future Trends in AI and Creativity",
+          "summary": "AI is rapidly evolving and will continue to transform the creative landscape.",
+          "quiz": [
+            {
+              "question": "What is a likely future trend in AI and creativity?",
+              "options": [
+                "Less AI",
+                "AI becoming less creative",
+                "AI becoming more integrated into creative workflows",
+                "AI disappearing"
+              ],
+              "answer": "AI becoming more integrated into creative workflows"
+            }
+          ]
+        }
+      ],
+      "assignment": "Experiment with style transfer or GANs to create a unique piece of AI-generated art."
+    }
+  ],
+  "capstoneProject": {
+    "title": "Generative AI Art Portfolio",
+    "description": "Create a portfolio of AI-generated artwork or interactive design projects, showcasing your understanding of ML concepts and your creative use of AI tools. The portfolio should demonstrate your ability to use prompts effectively, address ethical considerations, and create visually compelling and innovative work."
+  }
+}

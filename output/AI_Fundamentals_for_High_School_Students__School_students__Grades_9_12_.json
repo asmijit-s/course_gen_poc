@@ -1,0 +1,442 @@
+{
+  "courseTitle": "AI Fundamentals for High School Students.",
+  "overview": "The course should introduce artificial intelligence concepts in a fun, age-appropriate, and engaging way for students aged 14–18. It must explain basic ideas like algorithms, data, machine learning, and ethical AI using analogies, visuals, and real-life examples (e.g., recommendation systems, chatbots, or smart assistants).\nInclude hands-on activities (like using Teachable Machine, simple Scratch/Blockly projects, or interactive web demos), short video summaries, and quizzes after each module.\nNo prior coding experience is expected. The course should build confidence, curiosity, and responsible thinking about how AI impacts our world.\n",
+  "audience": "School students (Grades 9–12)",
+  "modules": [
+    {
+      "moduleName": "Module 1: Introduction to Artificial Intelligence",
+      "description": "This module introduces the fundamental concepts of AI, its history, and its impact on society. Students will learn what AI is and its various applications.",
+      "submodules": [
+        {
+          "name": "Submodule 1.1: What is AI?",
+          "description": "Defining AI, exploring its different types (narrow, general, super), and understanding its core goals.",
+          "videoLecture": "What is Artificial Intelligence? - A Beginner's Guide",
+          "summary": "AI aims to create intelligent machines that can perform tasks autonomously.",
+          "quiz": [
+            {
+              "question": "Which of the following best describes Artificial Intelligence?",
+              "options": [
+                "Simulating human intelligence in machines",
+                "Creating robots to perform physical tasks",
+                "Developing software for data analysis",
+                "Automating business processes"
+              ],
+              "answer": "Simulating human intelligence in machines"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 1.2: History of AI",
+          "description": "A brief overview of the key milestones and figures in the development of AI from its early beginnings to the present day.",
+          "videoLecture": "A Brief History of Artificial Intelligence",
+          "summary": "AI's history includes symbolic AI, expert systems, and the rise of machine learning.",
+          "quiz": [
+            {
+              "question": "Who is considered one of the founding fathers of AI?",
+              "options": [
+                "Alan Turing",
+                "Bill Gates",
+                "Steve Jobs",
+                "Elon Musk"
+              ],
+              "answer": "Alan Turing"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 1.3: Applications of AI",
+          "description": "Exploring real-world applications of AI in various fields like healthcare, finance, transportation, and entertainment.",
+          "videoLecture": "AI Applications in Everyday Life",
+          "summary": "AI is used in recommendation systems, self-driving cars, and medical diagnosis.",
+          "quiz": [
+            {
+              "question": "Which of the following is NOT a common application of AI?",
+              "options": [
+                "Medical diagnosis",
+                "Self-driving cars",
+                "Predicting the weather",
+                "Cooking food"
+              ],
+              "answer": "Cooking food"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 1.4: AI and Society",
+          "description": "Discussing the societal impact of AI, including its potential benefits and challenges, and the importance of ethical considerations.",
+          "videoLecture": "The Impact of AI on Society",
+          "summary": "AI can improve efficiency and solve problems but also raises ethical concerns.",
+          "quiz": [
+            {
+              "question": "What is a key ethical consideration regarding AI?",
+              "options": [
+                "Data privacy",
+                "Job creation",
+                "Increased productivity",
+                "Faster internet speeds"
+              ],
+              "answer": "Data privacy"
+            }
+          ]
+        }
+      ],
+      "assignment": "Research and present on a specific application of AI and its impact on a particular industry."
+    },
+    {
+      "moduleName": "Module 2: Understanding Data",
+      "description": "This module focuses on the importance of data in AI, different types of data, and how data is collected, cleaned, and prepared for AI models.",
+      "submodules": [
+        {
+          "name": "Submodule 2.1: Data: The Fuel of AI",
+          "description": "Explaining why data is essential for AI and how AI models learn from data.",
+          "videoLecture": "Data: The Foundation of AI",
+          "summary": "AI models require large amounts of data to learn and make accurate predictions.",
+          "quiz": [
+            {
+              "question": "Why is data important for AI?",
+              "options": [
+                "It provides the information AI models learn from",
+                "It makes AI models faster",
+                "It reduces the cost of AI development",
+                "It makes AI models more user-friendly"
+              ],
+              "answer": "It provides the information AI models learn from"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 2.2: Types of Data",
+          "description": "Introducing different types of data, including structured, unstructured, numerical, categorical, and textual data.",
+          "videoLecture": "Different Types of Data in AI",
+          "summary": "Data can be structured (tables) or unstructured (text, images, audio).",
+          "quiz": [
+            {
+              "question": "Which of the following is an example of unstructured data?",
+              "options": [
+                "A spreadsheet",
+                "A database",
+                "A text document",
+                "A table"
+              ],
+              "answer": "A text document"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 2.3: Data Collection and Cleaning",
+          "description": "Discussing methods for collecting data and techniques for cleaning and preprocessing data to ensure quality and accuracy.",
+          "videoLecture": "Data Collection and Cleaning Techniques",
+          "summary": "Data cleaning involves handling missing values and removing inconsistencies.",
+          "quiz": [
+            {
+              "question": "What is the purpose of data cleaning?",
+              "options": [
+                "To improve data quality and accuracy",
+                "To reduce the size of the data",
+                "To make the data more visually appealing",
+                "To encrypt the data"
+              ],
+              "answer": "To improve data quality and accuracy"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 2.4: Data Visualization",
+          "description": "Introduction to visualizing data using charts and graphs to understand patterns and insights.",
+          "videoLecture": "Introduction to Data Visualization",
+          "summary": "Data visualization helps in identifying trends and patterns in data.",
+          "quiz": [
+            {
+              "question": "Which of the following is a common data visualization technique?",
+              "options": [
+                "Encryption",
+                "Data mining",
+                "Bar chart",
+                "Data compression"
+              ],
+              "answer": "Bar chart"
+            }
+          ]
+        }
+      ],
+      "assignment": "Collect a dataset, clean it, and create visualizations to identify patterns and insights."
+    },
+    {
+      "moduleName": "Module 3: Introduction to Algorithms",
+      "description": "This module introduces the concept of algorithms, how they work, and their role in AI. Students will learn about different types of algorithms and their applications.",
+      "submodules": [
+        {
+          "name": "Submodule 3.1: What are Algorithms?",
+          "description": "Defining algorithms as step-by-step instructions for solving a problem and their importance in computer science and AI.",
+          "videoLecture": "What is an Algorithm? - Explained",
+          "summary": "Algorithms are sets of instructions that computers follow to perform tasks.",
+          "quiz": [
+            {
+              "question": "What is an algorithm?",
+              "options": [
+                "A set of instructions for solving a problem",
+                "A type of computer hardware",
+                "A programming language",
+                "A database management system"
+              ],
+              "answer": "A set of instructions for solving a problem"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 3.2: Types of Algorithms",
+          "description": "Exploring different types of algorithms, including sorting, searching, and optimization algorithms.",
+          "videoLecture": "Types of Algorithms in Computer Science",
+          "summary": "Sorting algorithms arrange data, while searching algorithms find specific items.",
+          "quiz": [
+            {
+              "question": "Which type of algorithm is used to arrange data in a specific order?",
+              "options": [
+                "Sorting algorithm",
+                "Searching algorithm",
+                "Optimization algorithm",
+                "Encryption algorithm"
+              ],
+              "answer": "Sorting algorithm"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 3.3: Algorithms in AI",
+          "description": "Discussing how algorithms are used in AI to perform tasks like classification, regression, and clustering.",
+          "videoLecture": "Algorithms in Artificial Intelligence",
+          "summary": "AI algorithms enable machines to learn from data and make predictions.",
+          "quiz": [
+            {
+              "question": "What is a common use of algorithms in AI?",
+              "options": [
+                "Data storage",
+                "Classification",
+                "Hardware maintenance",
+                "Network security"
+              ],
+              "answer": "Classification"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 3.4: Building Simple Algorithms",
+          "description": "Hands-on activity to create simple algorithms using flowcharts or pseudocode for basic tasks.",
+          "videoLecture": "How to Build Simple Algorithms",
+          "summary": "Creating algorithms involves defining inputs, processes, and outputs.",
+          "quiz": [
+            {
+              "question": "What is the first step in building an algorithm?",
+              "options": [
+                "Defining the problem",
+                "Writing the code",
+                "Testing the algorithm",
+                "Deploying the algorithm"
+              ],
+              "answer": "Defining the problem"
+            }
+          ]
+        }
+      ],
+      "assignment": "Design an algorithm to solve a simple problem, such as finding the largest number in a list."
+    },
+    {
+      "moduleName": "Module 4: Machine Learning Basics",
+      "description": "This module introduces the core concepts of machine learning, including supervised, unsupervised, and reinforcement learning. Students will learn how machine learning models are trained and evaluated.",
+      "submodules": [
+        {
+          "name": "Submodule 4.1: What is Machine Learning?",
+          "description": "Defining machine learning as a subset of AI that enables machines to learn from data without explicit programming.",
+          "videoLecture": "What is Machine Learning? - A Simple Explanation",
+          "summary": "Machine learning allows computers to learn from data and improve their performance.",
+          "quiz": [
+            {
+              "question": "What is the main goal of machine learning?",
+              "options": [
+                "To enable machines to learn from data",
+                "To create robots",
+                "To automate business processes",
+                "To design computer hardware"
+              ],
+              "answer": "To enable machines to learn from data"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 4.2: Supervised Learning",
+          "description": "Explaining supervised learning, where models are trained on labeled data to make predictions.",
+          "videoLecture": "Introduction to Supervised Learning",
+          "summary": "Supervised learning uses labeled data to train models for prediction.",
+          "quiz": [
+            {
+              "question": "What type of data is used in supervised learning?",
+              "options": [
+                "Labeled data",
+                "Unlabeled data",
+                "Random data",
+                "Encrypted data"
+              ],
+              "answer": "Labeled data"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 4.3: Unsupervised Learning",
+          "description": "Explaining unsupervised learning, where models are trained on unlabeled data to discover patterns and relationships.",
+          "videoLecture": "Introduction to Unsupervised Learning",
+          "summary": "Unsupervised learning discovers patterns in unlabeled data.",
+          "quiz": [
+            {
+              "question": "What is the main goal of unsupervised learning?",
+              "options": [
+                "To discover patterns in unlabeled data",
+                "To make predictions on labeled data",
+                "To create robots",
+                "To automate business processes"
+              ],
+              "answer": "To discover patterns in unlabeled data"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 4.4: Reinforcement Learning",
+          "description": "Explaining reinforcement learning, where models learn to make decisions by interacting with an environment and receiving rewards or penalties.",
+          "videoLecture": "Introduction to Reinforcement Learning",
+          "summary": "Reinforcement learning involves training agents to make decisions in an environment.",
+          "quiz": [
+            {
+              "question": "What is the key component of reinforcement learning?",
+              "options": [
+                "An agent interacting with an environment",
+                "Labeled data",
+                "Unlabeled data",
+                "A database"
+              ],
+              "answer": "An agent interacting with an environment"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 4.5: Training and Evaluating Models",
+          "description": "Discussing how machine learning models are trained using training data and evaluated using testing data to assess their performance.",
+          "videoLecture": "Training and Evaluating Machine Learning Models",
+          "summary": "Models are trained on training data and evaluated on testing data.",
+          "quiz": [
+            {
+              "question": "What is the purpose of using testing data?",
+              "options": [
+                "To evaluate the performance of the model",
+                "To train the model",
+                "To clean the data",
+                "To visualize the data"
+              ],
+              "answer": "To evaluate the performance of the model"
+            }
+          ]
+        }
+      ],
+      "assignment": "Use Teachable Machine to train a simple image classification model."
+    },
+    {
+      "moduleName": "Module 5: Ethical AI and Future Trends",
+      "description": "This module explores the ethical considerations surrounding AI and discusses future trends in the field. Students will learn about the importance of responsible AI development and deployment.",
+      "submodules": [
+        {
+          "name": "Submodule 5.1: Bias in AI",
+          "description": "Discussing how bias can creep into AI models through biased data or algorithms and its potential consequences.",
+          "videoLecture": "Bias in Artificial Intelligence",
+          "summary": "Bias in AI can lead to unfair or discriminatory outcomes.",
+          "quiz": [
+            {
+              "question": "How can bias enter AI models?",
+              "options": [
+                "Through biased data",
+                "Through unbiased data",
+                "Through random data",
+                "Through encrypted data"
+              ],
+              "answer": "Through biased data"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 5.2: Fairness and Transparency",
+          "description": "Exploring the principles of fairness and transparency in AI and techniques for building more equitable and explainable AI systems.",
+          "videoLecture": "Fairness and Transparency in AI",
+          "summary": "Fairness and transparency are crucial for building trustworthy AI systems.",
+          "quiz": [
+            {
+              "question": "Why is transparency important in AI?",
+              "options": [
+                "To understand how AI models make decisions",
+                "To make AI models faster",
+                "To reduce the cost of AI development",
+                "To make AI models more user-friendly"
+              ],
+              "answer": "To understand how AI models make decisions"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 5.3: Privacy and Security",
+          "description": "Discussing the privacy and security implications of AI and methods for protecting sensitive data and preventing misuse of AI technologies.",
+          "videoLecture": "Privacy and Security in AI",
+          "summary": "Protecting data privacy and ensuring security are essential in AI development.",
+          "quiz": [
+            {
+              "question": "What is a key concern regarding privacy in AI?",
+              "options": [
+                "Data breaches",
+                "Increased productivity",
+                "Faster internet speeds",
+                "Job creation"
+              ],
+              "answer": "Data breaches"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 5.4: The Future of AI",
+          "description": "Exploring emerging trends in AI, such as explainable AI, edge AI, and quantum AI, and their potential impact on society.",
+          "videoLecture": "Future Trends in Artificial Intelligence",
+          "summary": "The future of AI includes advancements in explainability, edge computing, and quantum computing.",
+          "quiz": [
+            {
+              "question": "What is a potential future trend in AI?",
+              "options": [
+                "Explainable AI",
+                "Data encryption",
+                "Hardware miniaturization",
+                "Network security"
+              ],
+              "answer": "Explainable AI"
+            }
+          ]
+        },
+        {
+          "name": "Submodule 5.5: AI and the Job Market",
+          "description": "Discussing the impact of AI on the job market, including potential job displacement and the emergence of new job roles.",
+          "videoLecture": "AI and the Future of Work",
+          "summary": "AI may automate some jobs but also create new opportunities.",
+          "quiz": [
+            {
+              "question": "How might AI impact the job market?",
+              "options": [
+                "By automating some jobs and creating new roles",
+                "By eliminating all jobs",
+                "By having no impact on the job market",
+                "By making all jobs easier"
+              ],
+              "answer": "By automating some jobs and creating new roles"
+            }
+          ]
+        }
+      ],
+      "assignment": "Research and present on an ethical issue related to AI and propose solutions for addressing it."
+    }
+  ],
+  "capstoneProject": {
+    "title": "AI-Powered Recommendation System",
+    "description": "Develop a simple recommendation system using machine learning techniques to suggest items based on user preferences. This project integrates data handling, algorithms, and ethical considerations."
+  }
+}
