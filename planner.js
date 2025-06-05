@@ -309,4 +309,8 @@ function validateCourseStructure(parsed, numModules) {
   
   console.log("Course structure validation passed");
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> d0876c60f87c6860ccda3dfdda40ea23dec57f65
